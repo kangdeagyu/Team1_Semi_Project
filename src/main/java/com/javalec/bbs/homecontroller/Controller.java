@@ -14,7 +14,7 @@ import com.javalec.bbs.command.SCommand;
 /**
  * Servlet implementation class Controller
  */
-@WebServlet("/Controller")
+@WebServlet("*.do")
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -54,7 +54,14 @@ public class Controller extends HttpServlet {
 		
 		String com = uri.substring(conPath.length());
 	
-		
+		switch (com) {
+		case ("/login.do"):
+			
+			break;
+
+		default:
+			break;
+		}
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);
