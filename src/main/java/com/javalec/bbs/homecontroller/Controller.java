@@ -52,7 +52,7 @@ public class Controller extends HttpServlet {
 	
 	private void actionDo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		HttpSession session = request.getSession();
+		HttpSession session = request.getSession(true);
 		
 		String viewPage = null;
 		SCommand command = null;
@@ -68,9 +68,8 @@ public class Controller extends HttpServlet {
 			break;
 		case ("/login.do"):
 			command = new SLoginCommand();
-			session.setAttribute("sid", (String)request.getParameter("sid"));
 			command.execute(request, response);
-			System.out.println(session.getAttribute("sid"));
+			session.setAttribute("sid", (String)request.getAttribute("cid"));
 			viewPage = (String)request.getAttribute("login");
 			break;
 		case ("/joinview.do"):

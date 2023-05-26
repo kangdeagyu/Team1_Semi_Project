@@ -15,7 +15,6 @@ public class SLoginCommand implements SCommand {
 		boolean result;
 		String view = "";
 		String msg;
-	
 		SDao dao = new SDao();
 		result = dao.loginCheck(cid, cpw);
 		
@@ -23,7 +22,8 @@ public class SLoginCommand implements SCommand {
 			if(cid.equals("admin")) {
 				view = "login.jsp";			// 관리자 화면으로 변경
 			}else {
-				view = "Kms_UserMain.jsp";			// 홈 화면으로 변경		
+				view = "Kms_UserMain.jsp";  // 홈 화면으로 변경	
+				request.setAttribute("cid", cid);
 			}
 		}else {
 			view = "login.jsp";
