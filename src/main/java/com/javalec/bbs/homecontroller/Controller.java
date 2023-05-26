@@ -10,11 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.javalec.bbs.command.SCommand;
+import com.javalec.bbs.command.SLoginCommand;
 
 /**
  * Servlet implementation class Controller
  */
-@WebServlet("/Controller")
+@WebServlet("*.do")
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -54,7 +55,19 @@ public class Controller extends HttpServlet {
 		
 		String com = uri.substring(conPath.length());
 	
-		
+		switch (com) {
+		case("/loginview.do"):
+			viewPage = "login.jsp";
+			break;
+		case ("/login.do"):
+			command = new SLoginCommand();
+			command.execute(request, response);
+			viewPage = (String)request.getAttribute("login");
+			break;
+		case ("/join.do"):
+			viewPage = "join.jsp";
+			break;
+		}
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);
