@@ -126,7 +126,14 @@ function checkCustomer(){
 </script>
 <meta charset="UTF-8">
 <title>회원가입</title>
+  <style>
+    body {
+      margin: 0 auto;
+      width: 500px;
+    }
+  </style>
 </head>
+<h1>회원가입</h1>
 <body onload="initializePage()">
 	<form action="join.do" method="post" name="join">
 		<table>
@@ -159,7 +166,7 @@ function checkCustomer(){
 				<td><input type="text" name="cemail" placeholder="이메일 주소를 입력해주세요"></td>
 			</tr>
 			<tr>
-				<td><input type="button" value="등록" onclick="checkCustomer()" > </td>
+				<td><input type="button" value="등록" onclick="checkCustomer()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="loginview.do">돌아가기</a></td>
 			</tr>
 		</table>
 	</form>

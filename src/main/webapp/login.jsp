@@ -38,9 +38,15 @@
 </script>
 <meta charset="UTF-8">
 <title>로그인 화면</title>
+  <style>
+    body {
+      margin: 0 auto;
+      width: 500px;
+    }
+  </style>
 </head>
 <body onload="initializePage()">
-<div class="center">
+
 <h1>로그인</h1>
 <form action="login.do" method="post" name="login">
 	  <table>
@@ -60,7 +66,7 @@
 	    </tr>
 	  </table>
 </form>
-</div>
+
 
 </body>
 </html>
