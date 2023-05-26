@@ -9,6 +9,14 @@
 </head>
 <body>
 	<h1>신발 리스트</h1>
+	<form action="search.do" method="post">
+		검색 선택 : <select name="list">
+				<option value="pname" selected="selected">상품명</option>
+				<option value="pcode">상품번호</option>
+		</select>
+		<input type="text" name="content" size="20">
+		<input type="submit" value="검색">
+	</form>
 	<table border="1">
 		<tr>
 			<th>이미지</th>
