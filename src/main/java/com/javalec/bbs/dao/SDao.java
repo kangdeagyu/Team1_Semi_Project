@@ -23,7 +23,7 @@ public class SDao {
 		}
 	}
 	
-	public boolean loginCheck(String sid, String spw) {
+	public boolean loginCheck(String cid, String cpw) {
 		boolean result = false;
 		int count = 0;
 		Connection connection = null;
@@ -32,10 +32,10 @@ public class SDao {
 		
 		try {
 			connection = dataSource.getConnection(); // sql 연결
-			String query = "select count(sid) from Customer where sid = ?, spw = ?";
+			String query = "select count(cid) from Customer where cid = ?, cpw = ?";
 			ps = connection.prepareStatement(query);
-			ps.setString(1, sid);
-			ps.setString(2, spw);
+			ps.setString(1, cid);
+			ps.setString(2, cpw);
 			rs = ps.executeQuery();
 			
 			if(rs.next()) {
@@ -67,7 +67,7 @@ public class SDao {
 		
 		try {
 			connection = dataSource.getConnection(); // sql 연결
-			String query = "insert into Customer (cid, cpw, cname, ctelno, caddress, cemail) values (?,?,?,?,?,?)";
+			String query = "insert into Customer (cid, cpw, cname, ctelno, caddress, cemail, cinsertdate) values (?,?,?,?,?,?,now())";
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setString(1, cid);
 			preparedStatement.setString(2, cpw);

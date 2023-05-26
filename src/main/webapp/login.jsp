@@ -9,26 +9,26 @@
 		
 		if(msg.length != 0){
 			alert(msg)
-			document.login.sid.select()
+			document.login.cid.select()
 		}
 	}
 
 	function checklogin(){
 		
 		const form = document.login
-		const id = form.sid.value
-		const pw = form.spw.value
+		const id = form.cid.value
+		const pw = form.cpw.value
 		
 
 		if(id.length == 0){
 			alert("아이디를 입력해주세요")
-			form.sid.select()
+			form.cid.select()
 			return
 		}
 		if(pw.length == 0){
 			alert("비밀번호를 입력해주세요")
 			
-			form.spw.select()
+			form.cpw.select()
 			return
 		}
 
@@ -46,11 +46,11 @@
 	  <table>
 	    <tr>
 	      <th>ID : </th>
-	      <td><input type="text" name="sid"></td>
+	      <td><input type="text" name="cid"></td>
 	    </tr>
 	    <tr>
 	      <th>PASSWORD :</th>
-	      <td><input type="password" name="spw"></td>
+	      <td><input type="password" name="cpw"></td>
 	    </tr>
 	    <tr>
 	      <td colspan="2"><input type="button" value="Login" onclick="checklogin()" ></td>

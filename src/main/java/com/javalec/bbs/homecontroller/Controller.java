@@ -79,6 +79,7 @@ public class Controller extends HttpServlet {
 			command = new SJoinCommand();
 			command.execute(request, response);
 			viewPage = "loginview.do";
+			break;
 		case("/usermain.do"):
 			command = new Kms_ListCommand();
 			command.execute(request, response);

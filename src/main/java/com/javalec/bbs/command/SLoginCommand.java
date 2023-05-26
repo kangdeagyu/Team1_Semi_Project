@@ -10,17 +10,17 @@ public class SLoginCommand implements SCommand {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		String sid = request.getParameter("sid");
-		String spw = request.getParameter("spw");
+		String cid = request.getParameter("cid");
+		String cpw = request.getParameter("cpw");
 		boolean result;
 		String view = "";
 		String msg;
 	
 		SDao dao = new SDao();
-		result = dao.loginCheck(sid, spw);
+		result = dao.loginCheck(cid, cpw);
 		
 		if(result == true) {
-			if(sid.equals("admin")) {
+			if(cid.equals("admin")) {
 				view = "login.jsp";			// 관리자 화면으로 변경
 			}else {
 				view = "login.jsp";			// 홈 화면으로 변경		
