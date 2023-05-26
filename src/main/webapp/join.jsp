@@ -4,10 +4,19 @@
 <html>
 <head>
 <script type="text/javascript">
+function initializePage(){
+	const msg = '${msg}'
+	
+	if(msg.length != 0){
+		alert(msg)
+		document.login.cid.select()
+	}
+}
+
 function checkCustomer(){
 	
 	const regExpId = /^[a-zA-Z0-9]{5,12}$/ // 아이디는 영문자와 숫자로 이루어진 5~12자여야 함
-	const regExpAdmin = /^(admin|root)$/
+	const regExpAdmin = /^(admin|root|delete|insert|update|select)$/
 	const regExpPw = /^(?=.*[a-zA-Z])(?=.*[!@#$%^&*])(?=.*[0-9]).{8,16}$/ // 비밀번호는 영문자, 숫자, 특수문자가 포함된 8~16자여야 함
 	const regExpName = /^[가-힣|a-z|A-Z]*$/
 	const regExpPhone = /^\d{3}-\d{3,4}-\d{4}$/
@@ -118,7 +127,7 @@ function checkCustomer(){
 <meta charset="UTF-8">
 <title>회원가입</title>
 </head>
-<body>
+<body onload="initializePage()">
 	<form action="join.do" method="post" name="join">
 		<table>
 			<tr>
@@ -147,7 +156,7 @@ function checkCustomer(){
 			</tr>
 			<tr>
 				<td>이메일 :</td>
-				<td><input type="text" name="cemail" placeholder="이메일 주소를 입려갷주세요"></td>
+				<td><input type="text" name="cemail" placeholder="이메일 주소를 입력해주세요"></td>
 			</tr>
 			<tr>
 				<td><input type="button" value="등록" onclick="checkCustomer()" > </td>

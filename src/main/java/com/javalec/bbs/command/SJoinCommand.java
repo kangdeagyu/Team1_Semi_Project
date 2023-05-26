@@ -16,9 +16,20 @@ public class SJoinCommand implements SCommand {
 			String ctelno = request.getParameter("ctelno");
 			String caddress = request.getParameter("caddress");
 			String cemail = request.getParameter("cemail");
+			String view;
+			String msg;
 			
 			SDao dao = new SDao();
-			dao.join(cid, cpw, cname, ctelno, caddress, cemail);
+			boolean result = dao.join(cid, cpw, cname, ctelno, caddress, cemail);
+			if(result == true) {
+				view = "loginview.do";
+			}else {
+				view = "join.jsp";
+				msg = "중복된 아이디 입니다.";
+				request.setAttribute("msg", msg);
+			}
+				
+			request.setAttribute("join", view);
 	}
 
 }

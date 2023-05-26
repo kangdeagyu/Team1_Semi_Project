@@ -68,8 +68,9 @@ public class Controller extends HttpServlet {
 			break;
 		case ("/login.do"):
 			command = new SLoginCommand();
-			command.execute(request, response);
 			session.setAttribute("sid", (String)request.getParameter("sid"));
+			command.execute(request, response);
+			System.out.println(session.getAttribute("sid"));
 			viewPage = (String)request.getAttribute("login");
 			break;
 		case ("/joinview.do"):
@@ -78,7 +79,7 @@ public class Controller extends HttpServlet {
 		case("/join.do"):
 			command = new SJoinCommand();
 			command.execute(request, response);
-			viewPage = "loginview.do";
+			viewPage = (String)request.getAttribute("join");
 			break;
 		case("/usermain.do"):
 			command = new Kms_ListCommand();

@@ -23,7 +23,7 @@ public class SLoginCommand implements SCommand {
 			if(cid.equals("admin")) {
 				view = "login.jsp";			// 관리자 화면으로 변경
 			}else {
-				view = "login.jsp";			// 홈 화면으로 변경		
+				view = "Kms_UserMain.jsp";			// 홈 화면으로 변경		
 			}
 		}else {
 			view = "login.jsp";

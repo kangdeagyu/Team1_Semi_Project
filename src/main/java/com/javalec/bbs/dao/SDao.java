@@ -32,7 +32,7 @@ public class SDao {
 		
 		try {
 			connection = dataSource.getConnection(); // sql 연결
-			String query = "select count(cid) from Customer where cid = ?, cpw = ?";
+			String query = "select count(cid) from Customer where cid = ? and cpw = ?";
 			ps = connection.prepareStatement(query);
 			ps.setString(1, cid);
 			ps.setString(2, cpw);
@@ -61,10 +61,10 @@ public class SDao {
 	
 	}
 	
-	public void join(String cid, String cpw, String cname, String telno, String caddress, String cemail) {
+	public boolean join(String cid, String cpw, String cname, String telno, String caddress, String cemail) {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
-		
+		boolean result = false;
 		try {
 			connection = dataSource.getConnection(); // sql 연결
 			String query = "insert into Customer (cid, cpw, cname, ctelno, caddress, cemail, cinsertdate) values (?,?,?,?,?,?,now())";
@@ -77,10 +77,10 @@ public class SDao {
 			preparedStatement.setString(6, cemail);
 			
 			preparedStatement.executeUpdate();
-			
+			result = true;
 
 		}catch (Exception e) {
-			e.printStackTrace();
+			result = false;
 		}finally {
 			try {
 				if(preparedStatement != null) preparedStatement.close();
@@ -90,7 +90,7 @@ public class SDao {
 			}
 		}
 		
-		
+		return result;
 	}
 	
 	
