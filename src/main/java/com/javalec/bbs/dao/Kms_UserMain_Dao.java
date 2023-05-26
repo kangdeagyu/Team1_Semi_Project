@@ -137,6 +137,46 @@ public class Kms_UserMain_Dao {
 		
 	} // 주소록 작성
 	
+	public ArrayList<Kms_UserMain_Dto> search1(String list, String content){
+		ArrayList<Kms_UserMain_Dto> dtos = new ArrayList<Kms_UserMain_Dto>();
+		Connection connection = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		
+		try {
+			connection = dataSource.getConnection();
+			String query = "select pimage, pcode, pname, pprice from product";
+			String Where2 = " where " + list + " like ?";
+			ps = connection.prepareStatement(query + Where2);
+			ps.setString(1, "%" + content + "%");
+			rs = ps.executeQuery();
+			
+			while(rs.next()) { 
+				String Pimage = rs.getString(1);
+				String Pimagename = rs.getString(2);
+				int Pcode = rs.getInt(3);
+				int Pprice = rs.getInt(4);
+				String Pname = rs.getString(5);
+
+				
+				
+				Kms_UserMain_Dto dto = new Kms_UserMain_Dto(Pimage, Pimagename, Pcode, Pprice, Pname);
+				dtos.add(dto);
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(rs != null) rs.close();
+				if(ps != null) ps.close();
+				if(connection != null) connection.close();
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return dtos;
+	} // list 출력
 }
 
 
