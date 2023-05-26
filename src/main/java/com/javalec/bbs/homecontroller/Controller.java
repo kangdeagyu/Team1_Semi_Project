@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.javalec.bbs.command.Kms_BasketCommand;
+import com.javalec.bbs.command.Kms_ListCommand;
+import com.javalec.bbs.command.Kms_UserBuyCommand;
 import com.javalec.bbs.command.SCommand;
 import com.javalec.bbs.command.SJoinCommand;
 import com.javalec.bbs.command.SLoginCommand;
@@ -76,6 +79,21 @@ public class Controller extends HttpServlet {
 			command = new SJoinCommand();
 			command.execute(request, response);
 			viewPage = "loginview.do";
+		case("/usermain.do"):
+			command = new Kms_ListCommand();
+			command.execute(request, response);
+			viewPage = "Kms_UserMain.jsp";
+			break;
+		case("/buy.do"):
+			command = new Kms_UserBuyCommand();
+			command.execute(request, response);
+			viewPage = "userbuy.jsp";
+			break;
+		case("/basket.do"):
+			command = new Kms_BasketCommand();
+			command.execute(request, response);
+			viewPage = "cartlist.do";
+			break;
 		}
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
