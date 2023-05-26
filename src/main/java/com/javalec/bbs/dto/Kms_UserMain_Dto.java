@@ -7,20 +7,36 @@ public class Kms_UserMain_Dto {
 	int pcode;
 	String pname;
 	int pprice;
-	FileInputStream pimage;
+	String pimage;
 	String pimagename;
 
 	public Kms_UserMain_Dto() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	
 
-	public Kms_UserMain_Dto(String pname, int pprice, String pimagename) {
+
+
+
+	public Kms_UserMain_Dto(int pcode, String pimage, String pname, int pprice) {
 		super();
+		this.pcode = pcode;
+		this.pimage = pimage;
 		this.pname = pname;
 		this.pprice = pprice;
+	}
+
+
+
+
+
+	public Kms_UserMain_Dto(String pimage, String pimagename, int pcode, int pprice, String pname) {
+		super();
+		this.pimage = pimage;
 		this.pimagename = pimagename;
+		this.pcode = pcode;
+		this.pprice = pprice;
+		this.pname = pname;
 	}
 
 
@@ -49,11 +65,11 @@ public class Kms_UserMain_Dto {
 		this.pprice = pprice;
 	}
 
-	public FileInputStream getPimage() {
+	public String getPimage() {
 		return pimage;
 	}
 
-	public void setPimage(FileInputStream pimage) {
+	public void setPimage(String pimage) {
 		this.pimage = pimage;
 	}
 

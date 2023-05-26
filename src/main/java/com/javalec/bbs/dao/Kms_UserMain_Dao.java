@@ -37,23 +37,20 @@ public class Kms_UserMain_Dao {
 		
 		try {
 			connection = dataSource.getConnection();
-			String query = "select pimagename, pprice, pname from product";
+			String query = "select pimage, pimagename, pcode, pprice, pname from product";
 			preparedStatement = connection.prepareStatement(query);
 			resultSet = preparedStatement.executeQuery();
 			
 			while(resultSet.next()) {
-				String Pimagename = resultSet.getString("pimagename");
-				int Pprice = resultSet.getInt("pprice");
-				String Pname = resultSet.getString("pname");
+				String Pimage = resultSet.getString(1);
+				String Pimagename = resultSet.getString(2);
+				int Pcode = resultSet.getInt(3);
+				int Pprice = resultSet.getInt(4);
+				String Pname = resultSet.getString(5);
+
 				
-//				File file = new File("./" + Pimagename);
-//				FileOutputStream output = new FileOutputStream(file);   // fileoutputstream은 file만드는 클래스
-//				InputStream input = resultSet.getBinaryStream("pimage");  // db에서 image를 가져오는 것
-//				byte[] buffer = new byte[1024];  // 1024는 한번에 불러오는 파일의 크기 버퍼가 바이트배열로 만들어지는데 그림의 일부분(정해준 크기)만큼씩 블록으로 생성하여 배열로 들어옴
-//				while(input.read(buffer)>0) {
-//					output.write(buffer);
-//				}
-				Kms_UserMain_Dto dto = new Kms_UserMain_Dto(Pimagename, Pprice, Pname);
+				
+				Kms_UserMain_Dto dto = new Kms_UserMain_Dto(Pimage, Pimagename, Pcode, Pprice, Pname);
 				dtos.add(dto);
 				
 			
@@ -73,6 +70,73 @@ public class Kms_UserMain_Dao {
 		return dtos;
 		
 	} // list
+	
+	public Kms_UserMain_Dto contentView(String pname) {
+		Kms_UserMain_Dto dto = null;
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet rs = null;
+		
+		try {
+			connection = dataSource.getConnection();
+			String query = "select pimage, pcode, pname, pprice from product where pname = ?";
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setString(1, pname);
+			rs = preparedStatement.executeQuery();
+			
+			if(rs.next()) { // 한 줄 짜리니까 while 말고 if 쓰자
+				int Pcode = rs.getInt("pcode");
+				String Pimage = rs.getString("pimage");
+				String Pname = rs.getString("pname");
+				int Pprice = rs.getInt("pprice");
+				
+				dto = new Kms_UserMain_Dto(Pcode, Pimage, Pname, Pprice);
+				
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(rs != null) rs.close();
+				if(preparedStatement != null) preparedStatement.close();
+				if(connection != null) connection.close();
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return dto;
+
+	} // content view
+	
+	public void basketAction(String cid, String pcode, int qty) {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		
+		try {
+			connection = dataSource.getConnection();
+			String query = "insert into basket (b_cid, b_pcode, bqty, bdate) values (?,?,?,now())";
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setString(1, cid);
+			preparedStatement.setString(2, pcode);
+			preparedStatement.setInt(3, qty);
+			
+			preparedStatement.executeUpdate();
+				
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(preparedStatement != null) preparedStatement.close();
+				if(connection != null) connection.close();
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+	} // 주소록 작성
+	
 }
 
 
