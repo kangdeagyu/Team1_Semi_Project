@@ -14,19 +14,23 @@ public class SLoginCommand implements SCommand {
 		String spw = request.getParameter("spw");
 		boolean result;
 		String view = "";
-		String msg = "";
+		String msg;
 	
 		SDao dao = new SDao();
 		result = dao.loginCheck(sid, spw);
 		
 		if(result == true) {
-			view = "login.jsp";
+			if(sid.equals("admin")) {
+				view = "login.jsp";			// 관리자 화면으로 변경
+			}else {
+				view = "login.jsp";			// 홈 화면으로 변경		
+			}
 		}else {
 			view = "login.jsp";
 			msg = "아이디와 비밀번호를 확인해주세요";
+			request.setAttribute("msg", msg);
 		}
 		request.setAttribute("login", view);
-		request.setAttribute("msg", msg);
 	}
 
 }

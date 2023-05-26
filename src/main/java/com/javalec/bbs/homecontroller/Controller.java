@@ -8,10 +8,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.javalec.bbs.command.SCommand;
 import com.javalec.bbs.command.SJoinCommand;
 import com.javalec.bbs.command.SLoginCommand;
+import com.mysql.cj.Session;
 
 /**
  * Servlet implementation class Controller
@@ -47,6 +49,7 @@ public class Controller extends HttpServlet {
 	
 	private void actionDo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
+		HttpSession session = request.getSession();
 		
 		String viewPage = null;
 		SCommand command = null;
@@ -63,6 +66,7 @@ public class Controller extends HttpServlet {
 		case ("/login.do"):
 			command = new SLoginCommand();
 			command.execute(request, response);
+			session.setAttribute("sid", (String)request.getParameter("sid"));
 			viewPage = (String)request.getAttribute("login");
 			break;
 		case ("/joinview.do"):
