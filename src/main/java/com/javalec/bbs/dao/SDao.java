@@ -61,6 +61,39 @@ public class SDao {
 	
 	}
 	
+	public void join(String cid, String cpw, String cname, String telno, String caddress, String cemail) {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		
+		try {
+			connection = dataSource.getConnection(); // sql 연결
+			String query = "insert into Customer (cid, cpw, cname, ctelno, caddress, cemail) values (?,?,?,?,?,?)";
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setString(1, cid);
+			preparedStatement.setString(2, cpw);
+			preparedStatement.setString(3, cname);
+			preparedStatement.setString(4, telno);
+			preparedStatement.setString(5, caddress);
+			preparedStatement.setString(6, cemail);
+			
+			preparedStatement.executeUpdate();
+			
+
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(preparedStatement != null) preparedStatement.close();
+				if(connection != null) connection.close();
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		
+	}
 	
 	
-}
+	
+}// end
+

@@ -13,17 +13,17 @@
   <table>
     <tr>
       <th>ID :</th>
-      <td><input type="text" name="id"></td>
+      <td><input type="text" name="sid"></td>
     </tr>
     <tr>
       <th>PASSWORD :</th>
-      <td><input type="text" name="password"></td>
+      <td><input type="password" name="spw"></td>
     </tr>
     <tr>
       <td colspan="2"><input type="submit" value="Login" ></td>
     </tr>
     <tr>
-      <td colspan="2">아직 회원이 아니신가요?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="join.do">회원가입</a></td>
+      <td colspan="2">아직 회원이 아니신가요?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="joinview.do">회원가입</a></td>
     </tr>
   </table>
 </form>

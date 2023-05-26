@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.javalec.bbs.command.SCommand;
+import com.javalec.bbs.command.SJoinCommand;
 import com.javalec.bbs.command.SLoginCommand;
 
 /**
@@ -64,9 +65,13 @@ public class Controller extends HttpServlet {
 			command.execute(request, response);
 			viewPage = (String)request.getAttribute("login");
 			break;
-		case ("/join.do"):
+		case ("/joinview.do"):
 			viewPage = "join.jsp";
 			break;
+		case("/join.do"):
+			command = new SJoinCommand();
+			command.execute(request, response);
+			viewPage = "loginview.do";
 		}
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
