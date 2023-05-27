@@ -5,35 +5,38 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>장바구니</title>
+		<title>구매목록</title>
 	</head>
 	<body>
-	<h3>장바구니</h3>
+	<h3>구매 목록</h3>
 	<input type="hidden" name="cid" value="IU1993">
-	고객님 ${cid}
+	<form action=""method="post">
+	<table>
+	<td>고객님 ${cid}</td>
+	<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+	<td><input type="submit" name="Home" value="Home"></td>
+	<td><input type="submit" name="LogOut" value="LogOut"></td>
+	<td><input type="submit" name="MyPage" value="MyPage"></td>
+	</table>
+	</form>
 	<hr>
-	<form action="deleteOrPurchase.do" method="post">
 	    <table border=1>
 	        <tr>
 	            <th>사진</th>
-	            <th>제품번호</th>
+	            <th>주문번호</th>
 	            <th>제품명</th>
 	            <th>가격</th>
 	            <th>수량</th>
-	            <th>상품선택</th>
+	            <th>주문날짜</th>
 	        </tr>
 	        <c:forEach items="${list}" var="dto">
 	            <tr>
-	                <td> <img src="${dto.pimagename}" alt="Product Image" /></td>
-	                <td>${dto.pcode }</td>
+	                <!--<td> <img src="${dto.pimagename}" alt="Product Image" /></td>-->
+	                <td>${dto.onum }</td>
 	                <td>${dto.pname }</td>
 	                <td>${dto.pprice }</td>
-	                <td>${dto.bqty }</td>
-	                <td>
-	                    <input type="checkbox" name="selectedItems" value="${dto.bcode}">
-	                    <input type="hidden" name="pcode${dto.bcode}" value="${dto.pcode}">
-            			<input type="hidden" name="bqty${dto.bcode}" value="${dto.bqty}">
-	                </td>
+	                <td>${dto.oqty }</td>
+	                <td>${dto.odate}</td>
 	            </tr>
 	        </c:forEach>
 	    </table>

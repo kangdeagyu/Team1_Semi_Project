@@ -125,6 +125,31 @@ public class SJihwan_Cart_Purchase_Dao {
 
 	}
 	
+	public void purchase(String cid, String pcode, String qty) {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		try {
+			connection = datasource.getConnection();
+			String query = "insert into ordering (o_cid, o_pcode, oqty, odate) values (?,?,?,?,now())";
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setString(1, cid);
+			preparedStatement.setString(2, pcode);
+			preparedStatement.setString(3, qty);
+			preparedStatement.executeUpdate();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(preparedStatement !=null) preparedStatement.close();
+				if(connection !=null) connection.close();
+			}catch (Exception e) {
+				e.printStackTrace();
+				}
+			}
+		}
+	
+	
+	
 	
 	public SJihwan_Cart_Purchase_Dto total(String cid) {
 	    SJihwan_Cart_Purchase_Dto dto = null;
