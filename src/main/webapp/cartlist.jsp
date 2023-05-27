@@ -10,7 +10,14 @@
 	<body>
 	<h3>장바구니</h3>
 	<input type="hidden" name="cid" value="IU1993">
-	고객님 ${cid}
+	<form action="Select.do"method="post">
+	<table>
+	<td>고객님 ${cid}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<input type="submit" name="action" value="Home">&nbsp;&nbsp;&nbsp;
+	<input type="submit" name="action" value="LogOut">
+	<input type="submit" name="action" value="MyPage"></td>
+	</table>
+	</form>
 	<hr>
 	<form action="deleteOrPurchase.do" method="post">
 	    <table border=1>

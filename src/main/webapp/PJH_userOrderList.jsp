@@ -10,13 +10,12 @@
 	<body>
 	<h3>구매 목록</h3>
 	<input type="hidden" name="cid" value="IU1993">
-	<form action=""method="post">
+	<form action="Select.do"method="post">
 	<table>
-	<td>고객님 ${cid}</td>
-	<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-	<td><input type="submit" name="Home" value="Home"></td>
-	<td><input type="submit" name="LogOut" value="LogOut"></td>
-	<td><input type="submit" name="MyPage" value="MyPage"></td>
+	<td>고객님 ${cid}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<input type="submit" name="action" value="Home">&nbsp;&nbsp;&nbsp;
+	<input type="submit" name="action" value="LogOut">
+	<input type="submit" name="action" value="MyPage"></td>
 	</table>
 	</form>
 	<hr>
@@ -40,9 +39,6 @@
 	            </tr>
 	        </c:forEach>
 	    </table>
-	    
-	    <input type="submit" name="action" value="삭제">
-	    <input type="submit" name="action" value="구매">
 	</form>
 	</table>
 	<br/>

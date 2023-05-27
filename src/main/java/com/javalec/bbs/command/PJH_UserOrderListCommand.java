@@ -15,7 +15,16 @@ public class PJH_UserOrderListCommand implements SCommand {
 		// TODO Auto-generated method stub
 		SJihwan_UserOrderList_Dao dao = new SJihwan_UserOrderList_Dao();
 		ArrayList<SJihwan_UserOrderList_Dto>dtos = dao.list();
+		
+		int total = 0;
+		for (SJihwan_UserOrderList_Dto dto : dtos) {
+			int price = dto.getPprice();
+			total +=price;
+		}
+		
+		
 		request.setAttribute("list", dtos);
+		request.setAttribute("total", total);
 	}
 
 }

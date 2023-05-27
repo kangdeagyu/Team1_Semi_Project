@@ -15,7 +15,15 @@ public class PJH_Basket_ListCommand implements SCommand {
 		// TODO Auto-generated method stub
 		SJihwan_Cart_Purchase_Dao dao = new SJihwan_Cart_Purchase_Dao();
 		ArrayList<SJihwan_Cart_Purchase_Dto>dtos = dao.list();
+		int total=0;
+		
+		for (SJihwan_Cart_Purchase_Dto dto: dtos) {
+			int price = dto.getPprice();
+			total +=price;
+		}
+		
 		request.setAttribute("list", dtos);
+		request.setAttribute("toal", total);
 	}
 
 }
