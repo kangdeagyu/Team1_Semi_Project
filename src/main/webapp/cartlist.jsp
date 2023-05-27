@@ -44,9 +44,10 @@
 	            </tr>
 	        </c:forEach>
 	    </table>
-	    
 	    <input type="submit" name="action" value="삭제">
+	    <c:if test="${hasSelectedItems }">
 	    <input type="submit" name="action" value="구매">
+	    </c:if>
 	</form>
 	</table>
 	<br/>

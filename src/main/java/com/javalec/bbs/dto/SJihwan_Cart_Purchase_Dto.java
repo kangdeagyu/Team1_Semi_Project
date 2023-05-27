@@ -33,7 +33,7 @@ public class SJihwan_Cart_Purchase_Dto {
 	Timestamp cinsertdate;
 	Timestamp cupdatedate;
 	Timestamp cdeletedate;
-	
+	boolean isSelected;
 	
 	// Constructor
 
@@ -138,7 +138,13 @@ public class SJihwan_Cart_Purchase_Dto {
 	}
 	
 	
+	public boolean isSelected() {
+		return isSelected;
+	}
 	
+	public void setSelected(boolean selected) {
+		isSelected = selected;
+	}
 	
 	
 	
