@@ -97,7 +97,29 @@ public class SJihwan_MyPage_Dao {
 		}
 			
 		
-		
+		public void delete(String cid) {
+			Connection connection = null;
+			PreparedStatement preparedStatement = null;
+			try {
+				connection = datasource.getConnection();
+				String query = "delete from customer where cid = ?";
+				preparedStatement = connection.prepareStatement(query);
+				preparedStatement.setString(1, cid);
+				preparedStatement.executeUpdate();
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				try {
+					if (preparedStatement != null)
+						preparedStatement.close();
+					if (connection != null)
+						connection.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+
+		}
 		
 		
 		

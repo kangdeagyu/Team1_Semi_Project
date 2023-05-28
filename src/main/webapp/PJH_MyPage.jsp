@@ -9,20 +9,15 @@
 	<body>
 		<h2>MyPage</h2>
 	<table>
-		<td>${content_view.cname} 고객님</td>
 			<td>
 			<form action="usermain.do" method="post">
 				<input type="submit" name="action" value="Home">
 			</form>
 			</td>
+			<td>${content_view.cname} 고객님</td>
 			<td>
 			<form action="loginview.do" method="post">
 			<input type="submit" name="action" value="LogOut">
-			</form>
-			</td>
-			<td>
-			<form action="mypage.do" method="post">
-				<input type="submit" name="action" value="MyPage">
 			</form>
 			</td>
 			<td>
@@ -58,8 +53,23 @@
 				<td>전자우편</td>
 				<td><input type="text" name="cemail" value="${content_view.cemail}" size="50"></td>
 			</tr>
+		</table>
+		<br/>
+		<table>
 			<tr>
-			<td colspan="2"><input type="submit" value="수정"></td>
+				<td>
+					<form action="userorderlist.do" method="post">
+						<input type="submit" value="주문목록">
+					</form>
+				</td>
+				<td>
+					<input type="submit" value="수정">
+				</td>
+				<td>
+					<form action="deleteaccount.do" method="post">
+						<input type="submit" value="탈퇴">
+					</form>
+				</td>
 			</tr>
 		</table>
 	</form>
