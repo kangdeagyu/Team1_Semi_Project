@@ -45,7 +45,7 @@ public class SJihwan_UserOrderList_Dao {
 	
 	// Method
 	
-	public ArrayList<SJihwan_UserOrderList_Dto> list() {
+	public ArrayList<SJihwan_UserOrderList_Dto> list(String cid) {
 		ArrayList<SJihwan_UserOrderList_Dto> dtos = new ArrayList<SJihwan_UserOrderList_Dto>();
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -54,8 +54,9 @@ public class SJihwan_UserOrderList_Dao {
 			connection = datasource.getConnection();
 			String query = "select p.pimage, p.pcode, o.onum, p.pname, p.pprice, o.oqty, o.odate ";
 			String query1 = " from Customer c, product p, ordering o ";
-			String query2 = " where c.cid = o.o_cid and o.o_pcode = p.pcode and o.o_cid = 'JS1987' ";
+			String query2 = " where c.cid = o.o_cid and o.o_pcode = p.pcode and o.o_cid = ?";
 			preparedStatement = connection.prepareStatement(query+query1+query2);
+			preparedStatement.setString(1, cid);
 			resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()) {
 			    int pcode = resultSet.getInt(2);

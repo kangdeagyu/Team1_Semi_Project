@@ -31,7 +31,7 @@
 		<table>
 			<tr>
 				<td>ID</td>
-				<td>${content_view.cid}</td>
+				<td>${cid}</td>
 			</tr>
 			<tr>
 				<td>Password</td>
