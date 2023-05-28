@@ -8,16 +8,29 @@
 	</head>
 	<body>
 		<h2>MyPage</h2>
-	<form action="Select.do" method="post">
-		<table>
-			<td>고객님
-				${content_view.cname}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<input type="submit" name="action" value="Home">&nbsp;&nbsp;&nbsp;
-				<input type="submit" name="action" value="LogOut"> <input
-				type="submit" name="action" value="MyPage">
+	<table>
+		<td>${content_view.cname} 고객님</td>
+			<td>
+			<form action="usermain.do" method="post">
+				<input type="submit" name="action" value="Home">
+			</form>
 			</td>
-		</table>
-	</form>
+			<td>
+			<form action="loginview.do" method="post">
+			<input type="submit" name="action" value="LogOut">
+			</form>
+			</td>
+			<td>
+			<form action="mypage.do" method="post">
+				<input type="submit" name="action" value="MyPage">
+			</form>
+			</td>
+			<td>
+			<form action="basket.do" method="post">
+				<input type="submit" name="action" value="장바구니">
+			</form>
+			</td>
+	</table>
 	<form action="UserModify.do" method="post"> 
 		<input type="hidden" name="cid" value="HJM1984">
 		<table>

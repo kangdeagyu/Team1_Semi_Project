@@ -10,14 +10,29 @@
 	<body>
 	<h3>구매 목록</h3>
 	<input type="hidden" name="cid" value="IU1993">
-	<form action="Select.do"method="post">
 	<table>
-	<td>고객님 ${cid}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	<input type="submit" name="action" value="Home">&nbsp;&nbsp;&nbsp;
-	<input type="submit" name="action" value="LogOut">
-	<input type="submit" name="action" value="MyPage"></td>
+		<td>${dto.cname} 고객님</td>
+			<td>
+			<form action="usermain.do" method="post">
+				<input type="submit" name="action" value="Home">
+			</form>
+			</td>
+			<td>
+			<form action="loginview.do" method="post">
+			<input type="submit" name="action" value="LogOut">
+			</form>
+			</td>
+			<td>
+			<form action="mypage.do" method="post">
+				<input type="submit" name="action" value="MyPage">
+			</form>
+			</td>
+			<td>
+			<form action="basket.do" method="post">
+				<input type="submit" name="action" value="장바구니">
+			</form>
+			</td>
 	</table>
-	</form>
 	<hr>
 	    <table border=1>
 	        <tr>
