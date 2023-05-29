@@ -72,7 +72,7 @@ public class SDao {
 			count = 0;
 			
 			// 관리자
-			String query3 = "select count(aid) from Customer where aid = ? and apw = ?";
+			String query3 = "select count(aid) from admin where aid = ? and apw = ?";
 			ps = connection.prepareStatement(query3);
 			ps.setString(1, cid);
 			ps.setString(2, cpw);
