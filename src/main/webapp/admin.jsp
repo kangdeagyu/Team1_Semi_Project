@@ -6,10 +6,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>회원 리스트</title>
 </head>
 <body>
-   <h3>주문상태</h3>
+   <h3>회원 리스트</h3>
 <form action="search.do" method="post">
       검색 선택 :
       <select name="query">
@@ -26,16 +26,16 @@
          <th>전화번호</th>
          <th>주소</th>
          <th>전자우편</th>
-         <th>상품명</th>
+         <!-- <th>상품명</th> -->
       </tr>
       <c:forEach items="${list }" var="dto">
          <tr>
             <td><a>${dto.cid}</a></td>
             <td>${dto.cname}</td>
-            <td>${dto.cphone}</td>
+            <td>${dto.ctelno}</td>
             <td>${dto.caddress}</td>
             <td>${dto.cemail}</td>
-            <td>${dto.pname}</td>
+            <%-- <td>${dto.pname}</td> --%>
             
          </tr>
       </c:forEach>
