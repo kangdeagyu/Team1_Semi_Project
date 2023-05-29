@@ -17,6 +17,7 @@ import com.javalec.bbs.command.Kms_ListCommand;
 import com.javalec.bbs.command.Kms_UserBuyCommand;
 import com.javalec.bbs.command.PJH_Basket_ListCommand;
 import com.javalec.bbs.command.PJH_UserMyPageCommand;
+import com.javalec.bbs.command.PJH_UserOrderListCommand;
 import com.javalec.bbs.command.QDeleteCommand;
 import com.javalec.bbs.command.QInsertCommand;
 import com.javalec.bbs.command.QListCommand;
@@ -119,6 +120,11 @@ public class Controller extends HttpServlet {
 			command.execute(request, response);
 			viewPage = "PJH_MyPage.jsp";
 			break;
+		case("/userorderlist.do"):
+			command = new PJH_UserOrderListCommand();
+			command.execute(request, response);
+			viewPage = "PJH_userOrderList.jsp";
+		break;
 		case ("/reviewlist.do"):
 			System.out.println("컨트롤러 스위치 안에 들어왔음.");
 			command = new RListCommand();
