@@ -31,6 +31,7 @@ import com.javalec.bbs.command.RInsertCommand;
 import com.javalec.bbs.command.RListCommand;
 import com.javalec.bbs.command.RUpdateCommand;
 import com.javalec.bbs.command.RViewCommand;
+import com.javalec.bbs.command.RWriteCommand;
 import com.javalec.bbs.command.SCommand;
 import com.javalec.bbs.command.SJoinCommand;
 import com.javalec.bbs.command.SLoginCommand;
@@ -172,14 +173,11 @@ public class Controller extends HttpServlet {
 			
 		case ("/review_write.do"):
 			System.out.println("리뷰작성 스위치 안에 들어왔음.");
-			//command = new RWriteCommand(session.getAttribute("ID").toString());
+			command = new RWriteCommand(session);
 			//System.out.println("리뷰작성 커맨드 선언 되었음");
-			//command.execute(request, response);
-			session.setAttribute("PCODE",request.getParameter("pcode"));
+			command.execute(request, response);
 			System.out.println("리뷰작성 커맨드 실행 완료 되었음.");
 			viewPage = "review_write.jsp";
-			System.out.println("세션에 저장된 pcode : "+ session.getAttribute("PCODE").toString());
-			System.out.println("세션에 저장된 ID    : "+ session.getAttribute("ID").toString());
 			System.out.println("리뷰작성 다음 화면 입력 되었음.");
 			break;
 			

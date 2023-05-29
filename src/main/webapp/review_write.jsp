@@ -15,8 +15,8 @@
 	<form action = "review_insert.do" method="post" >
 		<table border="1">
 			<tr><td>제목</td>				<td><input type="text" name="rtitle"></td></tr>
-			<tr><td>작성자 </td> 			<td><input type="text" name="cid" value= "${sessionScope.ID}" readonly="readonly"></td>
-			<tr><td>상품코드 </td> 		<td><input type="text" name="pcode" value="${sessionScope.PCODE}" readonly="readonly"></td></tr>
+			<tr><td>작성자 </td> 			<td><input type="text" name="cid" value= "${cid}" readonly="readonly"></td>
+			<tr><td>상품코드 </td> 		<td><input type="text" name="pcode" value="${pcode}" readonly="readonly"></td></tr>
 			<tr><td>별점</td> 			<td><input type="number" name="rstar"></td> </tr>
 			
 			<tr><td colspan="2">내용 </td></tr>
