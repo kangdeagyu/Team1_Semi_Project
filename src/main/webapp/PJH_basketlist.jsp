@@ -34,7 +34,7 @@
 			</td>
 	</table>
 	<hr>
-	<form action="delete.do" method="post">
+	<form action="deleteOrPurchase.do" method="post">
 	    <table border=1>
 	        <tr>
 	            <th>사진</th>
@@ -60,10 +60,8 @@
 	        </c:forEach>
 	    </table>
 	    <input type="submit" name="action" value="삭제">
-	    </form>
-	    <form action="purchase.do" method="post">
 	    <input type="submit" name="action" value="구매">
-		</form>
+	</form>
 	</table>
 	<br/>
 			

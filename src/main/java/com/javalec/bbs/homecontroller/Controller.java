@@ -139,14 +139,10 @@ public class Controller extends HttpServlet {
 			command.execute(request, response);
 			viewPage = "admin.jsp";
 			break;
-		case("/delete.do"):
+		case("/deleteOrPurchase.do"):
 			command = new PJH_DeleteOrPurchaseCommand();
 			command.execute(request, response);
 			viewPage = "cartlist.do";
-		break;
-		case("/purchase.do"):
-			command = new PJH_DeleteOrPurchaseCommand();
-			command.execute(request, response);
 			viewPage = "PJH_userOrderList.jsp";
 		break;
 		case ("/reviewlist.do"):
