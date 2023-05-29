@@ -75,7 +75,7 @@ public class SJihwan_UserOrderList_Dao {
 			    int pprice = resultSet.getInt(5);
 			    int oqty = resultSet.getInt(6);
 			    String odate = resultSet.getString(6);
-			    SJihwan_UserOrderList_Dto dto = new SJihwan_UserOrderList_Dto(pimageName, onum, pname, pprice, oqty, odate);
+			    SJihwan_UserOrderList_Dto dto = new SJihwan_UserOrderList_Dto(pimageName, onum, pname, pprice, oqty, odate, pcode);
 			    dtos.add(dto);
 			}
 		}catch (Exception e) {

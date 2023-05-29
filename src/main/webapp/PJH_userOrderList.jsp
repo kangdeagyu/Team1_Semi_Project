@@ -9,7 +9,7 @@
 	</head>
 	<body>
 	<h3>구매 목록</h3>
-	<input type="hidden" name="cid" value=${cid}>
+	<input type="hidden" name="cid" value=${cid }>
 	<table>
 		<td>${dto.cname} 고객님</td>
 			<td>
@@ -42,6 +42,7 @@
 	            <th>가격</th>
 	            <th>수량</th>
 	            <th>주문날짜</th>
+	            <th>리뷰 작성하기</th>
 	        </tr>
 	        <c:forEach items="${list}" var="dto">
 	            <tr>
@@ -51,6 +52,8 @@
 	                <td>${dto.pprice }</td>
 	                <td>${dto.oqty }</td>
 	                <td>${dto.odate}</td>
+	                <td><a href="review_write.do?pcde=${dto.pcode}">
+	                </a></td>
 	            </tr>
 	        </c:forEach>
 	    </table>

@@ -58,20 +58,19 @@
 		<table>
 			<tr>
 				<td>
-					<form action="userorderlist.do" method="post">
-						<input type="submit" value="주문목록">
-					</form>
-				</td>
-				<td>
 					<input type="submit" value="수정">
-				</td>
-				<td>
-					<form action="deleteaccount.do" method="post">
-						<input type="submit" value="탈퇴">
-					</form>
 				</td>
 			</tr>
 		</table>
 	</form>
+				
+					<form action="userorderlist.do" method="post">
+						<input type="submit" value="주문목록">
+					</form>
+				
+				
+					<form action="deleteaccount.do" method="post">
+						<input type="submit" value="탈퇴">
+					</form>
 	</body>
 </html>
