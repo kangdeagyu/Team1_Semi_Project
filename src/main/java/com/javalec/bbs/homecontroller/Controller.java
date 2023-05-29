@@ -81,6 +81,7 @@ public class Controller extends HttpServlet {
 		
 		String com = uri.substring(conPath.length());
 	
+		
 		switch (com) {
 		case("/loginview.do"):
 			viewPage = "login.jsp";
@@ -349,10 +350,6 @@ public class Controller extends HttpServlet {
 			viewPage = "review_temp_start.jsp";
 			System.out.println("answer_insert.do 다음 화면 입력 되었음.");
 			break;
-			
-			
-			
-			
 		}
 		
 		
