@@ -8,11 +8,10 @@
 <title>신발 리스트</title>
 </head>
 <body>
-	${sid } 고객님 환영합니다.<br/>
 	<h1>신발 리스트</h1>
+	${sid } 고객님 환영합니다.
 	<input type="hidden" name="cid" value=${cid }>
 	<table>
-		<td>${cid} 고객님</td>
 			<form action="loginview.do" method="post">
 			<td>
 			<input type="submit" name="action" value="LogOut">

@@ -11,7 +11,6 @@ ${sid } 고객님 환영합니다. <br/>
 <h3>${contentView.pname}</h3>
 <input type="hidden" name="cid" value=${cid }>
 	<table>
-		<td>${cid} 고객님</td>
 			<td>
 			<form action="usermain.do" method="post">
 				<input type="submit" name="action" value="Home">
@@ -42,15 +41,15 @@ ${sid } 고객님 환영합니다. <br/>
 				<td>${contentView.pname }</td>
 			</tr>
 			<tr>
-				<td>상품번호</td>
+				<td>상품번호 :</td>
 				<td>${contentView.pcode }</td>
 			</tr>
 			<tr>
-				<td>가격</td>
+				<td>가격 :</td>
 				<td>${contentView.pprice }</td>
 			</tr>
 			<tr>
-				<td><img src="${contentView.pimage } alt=${contentView.pname}"></td>
+				<td><img src="${contentView.pimage } alt=${contentView.pname}" height="100" width="100"></td>
 			</tr>
 			<tr>
 				<td>수량</td>
