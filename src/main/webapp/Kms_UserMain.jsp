@@ -14,6 +14,7 @@
 	<table>
 		<td>${cid} 고객님</td>
 			<form action="loginview.do" method="post">
+			<td>
 			<input type="submit" name="action" value="LogOut">
 			</form>
 			</td>

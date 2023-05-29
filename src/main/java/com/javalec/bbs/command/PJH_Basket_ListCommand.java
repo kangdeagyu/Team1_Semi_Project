@@ -27,7 +27,7 @@ public class PJH_Basket_ListCommand implements SCommand {
 		}
 		
 		request.setAttribute("list", dtos);
-		request.setAttribute("toal", total);
+		request.setAttribute("total", total);
 		
 		boolean hasSelectedItems = dtos.stream()
                 .anyMatch(dto -> dto.isSelected());
