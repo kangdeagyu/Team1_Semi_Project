@@ -21,9 +21,9 @@
             position: relative;
         }
         .action-buttons {
-            position: absolute;
-            bottom: 0;
-            right: 0;
+            position: sticky;
+            bottom: 10px;
+            right: 10px;
             margin: 10px;
         }
         .action-buttons .btn {
@@ -81,10 +81,10 @@
                 </tbody>
             </table>
         </div>
-            <div class="action-buttons">
-                <input type="submit" name="action" value="삭제" class="btn btn-danger btn-sm">
-                <input type="submit" name="action" value="구매" class="btn btn-success btn-sm">
-            </div>
+        <div class="action-buttons">
+            <input type="submit" name="action" value="삭제" class="btn btn-danger btn-sm">
+            <input type="submit" name="action" value="구매" class="btn btn-success btn-sm">
+        </div>
     </form>
     <hr>
     <p>총 구매액: ${total}원</p>
