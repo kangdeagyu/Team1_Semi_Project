@@ -28,7 +28,7 @@ ${sid } 고객님 환영합니다. <br/>
 			</form>
 			</td>
 			<td>
-			<form action="basket.do" method="post">
+			<form action="cartlist.do" method="post">
 				<input type="submit" name="action" value="장바구니">
 			</form>
 			</td>

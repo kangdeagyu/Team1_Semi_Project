@@ -13,18 +13,12 @@
 	<input type="hidden" name="cid" value=${cid }>
 	<table>
 		<td>${cid} 고객님</td>
-			<td>
-			<form action="usermain.do" method="post">
-				<input type="submit" name="action" value="Home">
-			</form>
-			</td>
-			<td>
 			<form action="loginview.do" method="post">
 			<input type="submit" name="action" value="LogOut">
 			</form>
 			</td>
 			<td>
-			<form action="mypage.do" method="post">
+			<form action="cartlist.do" method="post">
 				<input type="submit" name="action" value="MyPage">
 			</form>
 			</td>
