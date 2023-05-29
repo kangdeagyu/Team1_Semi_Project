@@ -18,12 +18,12 @@
 			</form>
 			</td>
 			<td>
-			<form action="cartlist.do" method="post">
+			<form action="mypage.do" method="post">
 				<input type="submit" name="action" value="MyPage">
 			</form>
 			</td>
 			<td>
-			<form action="basket.do" method="post">
+			<form action="cartlist.do" method="post">
 				<input type="submit" name="action" value="장바구니">
 			</form>
 			</td>
