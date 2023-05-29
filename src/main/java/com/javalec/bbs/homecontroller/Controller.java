@@ -10,9 +10,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.javalec.bbs.command.AViewCommand;
+import com.javalec.bbs.command.AWriteCommand;
 import com.javalec.bbs.command.Kms_BasketCommand;
 import com.javalec.bbs.command.Kms_ListCommand;
 import com.javalec.bbs.command.Kms_UserBuyCommand;
+import com.javalec.bbs.command.QDeleteCommand;
+import com.javalec.bbs.command.QInsertCommand;
+import com.javalec.bbs.command.QListCommand;
+import com.javalec.bbs.command.QUpdateCommand;
+import com.javalec.bbs.command.QViewCommand;
+import com.javalec.bbs.command.RDeleteCommand;
+import com.javalec.bbs.command.RInsertCommand;
+import com.javalec.bbs.command.RListCommand;
+import com.javalec.bbs.command.RUpdateCommand;
+import com.javalec.bbs.command.RViewCommand;
 import com.javalec.bbs.command.SCommand;
 import com.javalec.bbs.command.SJoinCommand;
 import com.javalec.bbs.command.SLoginCommand;
@@ -95,7 +107,222 @@ public class Controller extends HttpServlet {
 			command.execute(request, response);
 			viewPage = "cartlist.do";
 			break;
+		case ("/reviewlist.do"):
+			System.out.println("컨트롤러 스위치 안에 들어왔음.");
+			command = new RListCommand();
+			System.out.println("커맨드 선언 되었음");
+			command.execute(request, response);
+			System.out.println("커맨드 실행 완료 되었음.");
+			viewPage = "reviewList.jsp";
+			System.out.println("다음 화면 입력 되었음.");
+			break;
+			
+			
+		case ("/review_view.do"):			
+
+			System.out.println("리뷰내용보기 스위치 안에 들어왔음.");
+			command = new RViewCommand();
+			System.out.println("리뷰내용보기 커맨드 선언 되었음");
+			command.execute(request, response);
+			System.out.println("리뷰내용보기 커맨드 실행 완료 되었음.");
+			viewPage = "review_view.jsp";
+			System.out.println("리뷰내용보기 다음 화면 입력 되었음.");
+			break;
+			
+		case ("/review_write.do"):
+			System.out.println("리뷰작성 스위치 안에 들어왔음.");
+			//command = new RWriteCommand(session.getAttribute("ID").toString());
+			//System.out.println("리뷰작성 커맨드 선언 되었음");
+			//command.execute(request, response);
+			session.setAttribute("PCODE",request.getParameter("pcode"));
+			System.out.println("리뷰작성 커맨드 실행 완료 되었음.");
+			viewPage = "review_write.jsp";
+			System.out.println("세션에 저장된 pcode : "+ session.getAttribute("PCODE").toString());
+			System.out.println("세션에 저장된 ID    : "+ session.getAttribute("ID").toString());
+			System.out.println("리뷰작성 다음 화면 입력 되었음.");
+			break;
+			
+		case("/review_insert.do"):
+			System.out.println("리뷰수정하기 스위치 안에 들어왔음.");
+			command = new RInsertCommand(session);
+			System.out.println("리뷰수정하기 커맨드 선언 되었음");
+			command.execute(request, response);
+			System.out.println("리뷰수정하기 커맨드 실행 완료 되었음.");
+			//viewPage = "reviewlist.do?pcode="+request.getParameter("pcode");
+			viewPage = "review_temp_start.jsp";
+
+			System.out.println("리뷰수정하기 다음 화면 입력 되었음.");
+			break;
+			
+			
+			
+			
+		case("/review_update.do"):
+			viewPage = "review_update.jsp";
+			System.out.println("리뷰업데이트 다음 화면 입력 되었음.");
+			break;
+			
+			
+		case("/review_update_execute.do"):
+			System.out.println("리뷰수정하기 스위치 안에 들어왔음.");
+			command = new RUpdateCommand();
+			System.out.println("리뷰수정하기 커맨드 선언 되었음");
+			command.execute(request, response);
+			System.out.println("리뷰수정하기 커맨드 실행 완료 되었음.");
+			//viewPage = "reviewlist.do?pcode="+request.getParameter("pcode");
+			viewPage = "review_temp_start.jsp";
+			System.out.println("리뷰수정하기 다음 화면 입력 되었음.");
+			break;
+	
+		case("/review_delete.do"):
+			System.out.println("리뷰삭제 스위치 안에 들어왔음.");
+			command = new RDeleteCommand();
+			System.out.println("리뷰삭제 커맨드 선언 되었음");
+			command.execute(request, response);
+			System.out.println("리뷰삭제 커맨드 실행 완료 되었음.");
+			//viewPage = "reviewlist.do?pcode="+request.getParameter("pcode");
+			viewPage = "review_temp_start.jsp";
+
+			System.out.println("리뷰삭제 다음 화면 입력 되었음.");
+			break;
+			
+			
+		case("/Q_Write.do"):
+			viewPage = "Q_Write.jsp";
+			System.out.println("Q_Write.do 다음 화면 입력 되었음.");
+			break;
+
+		case("/Q_Insert.do"):
+
+			System.out.println("Q_Insert 스위치 안에 들어왔음.");
+			command = new QInsertCommand(session);
+			System.out.println("Q_Insert 커맨드 선언 되었음");
+			command.execute(request, response);
+			System.out.println("Q_Insert 커맨드 실행 완료 되었음.");
+			
+			
+			viewPage = "review_temp_start.jsp";
+
+			System.out.println("Q_Insert 다음 화면 입력 되었음.");
+			break;
+		
+		case("/Q_list.do"):
+			System.out.println("Q_list 스위치 안에 들어왔음.");
+			command = new QListCommand(session);
+			System.out.println("q_list 선언 되었음");
+			command.execute(request, response);
+			System.out.println("q_list 실행 완료 되었음.");
+			viewPage = "q_List.jsp";
+			System.out.println("다음 화면 입력 되었음.");
+			break;
+
+			
+		case("/question_view.do"):
+			System.out.println("question_view.do 스위치 안에 들어왔음.");
+			command = new QViewCommand(session);
+			System.out.println("question_view.do 커맨드 선언 되었음");
+			command.execute(request, response);
+			System.out.println("question_view.do 커맨드 실행 완료 되었음.");
+			viewPage = "Q_view.jsp";
+			System.out.println("question_view.do 다음 화면 입력 되었음.");
+			break;
+			
+		case("/question_update.do"):
+			viewPage = "question_update.jsp";
+			System.out.println("리뷰업데이트 다음 화면 입력 되었음.");
+			break;
+			
+			
+		case("/question_update_execute.do"):
+			System.out.println("리뷰수정하기 스위치 안에 들어왔음.");
+			command = new QUpdateCommand(session);
+			System.out.println("리뷰수정하기 커맨드 선언 되었음");
+			command.execute(request, response);
+			System.out.println("리뷰수정하기 커맨드 실행 완료 되었음.");
+			//viewPage = "reviewlist.do?pcode="+request.getParameter("pcode");
+			viewPage = "review_temp_start.jsp";
+			System.out.println("리뷰수정하기 다음 화면 입력 되었음.");
+			
+			
+			break;
+			
+			
+			
+		case("/question_delete.do"):  
+			
+			System.out.println("질문삭제 스위치 안에 들어왔음.");
+			command = new QDeleteCommand(session);
+			System.out.println("질문삭제 커맨드 선언 되었음");
+			command.execute(request, response);
+			System.out.println("질문삭제 커맨드 실행 완료 되었음.");
+			//viewPage = "reviewlist.do?pcode="+request.getParameter("pcode");
+			viewPage = "review_temp_start.jsp";
+
+			System.out.println("질문삭제 다음 화면 입력 되었음.");
+			break;
+			
+		case("/answer_view.do"):
+			System.out.println("answer_view.do 스위치 안에 들어왔음.");
+			command = new AViewCommand(session);
+			System.out.println("answer_view.do 커맨드 선언 되었음");
+			command.execute(request, response);
+			System.out.println("answer_view.do 커맨드 실행 완료 되었음.");
+			viewPage = "A_view.jsp";
+			System.out.println("answer_view.do 다음 화면 입력 되었음.");
+			break;
+			
+			
+		case("/admin_q_list.do"):
+			System.out.println("admin_q_list 스위치 안에 들어왔음.");
+			command = new QListCommand(session);
+			System.out.println("admin_q_list 선언 되었음");
+			command.execute(request, response);
+			System.out.println("admin_q_list 실행 완료 되었음.");
+			viewPage = "q_List_admin.jsp";
+			System.out.println("다음 화면 입력 되었음.");
+			break;
+			
+		case("/question_check_view.do"): //
+			System.out.println("question_check.do 스위치 안에 들어왔음.");
+			command = new QViewCommand(session);
+			System.out.println("question_check.do 커맨드 선언 되었음");
+			command.execute(request, response);
+			System.out.println("question_check.do 커맨드 실행 완료 되었음.");
+			viewPage = "Q_check_view.jsp";
+			System.out.println("question_check.do 다음 화면 입력 되었음.");
+			break;
+			
+		case("/answer_write.do"):
+			
+			System.out.println("answer_write.do 스위치 안에 들어왔음.");
+			command = new AViewCommand(session);
+			System.out.println("answer_write.do 커맨드 선언 되었음");
+			command.execute(request, response);
+			System.out.println("answer_write.do 커맨드 실행 완료 되었음.");
+			viewPage = "A_write.jsp";
+			System.out.println("answer_write.do 다음 화면 입력 되었음.");
+			
+
+			break;
+			
+		case("/A_insert.do"):
+			System.out.println("answer_insert.do 스위치 안에 들어왔음.");
+			command = new AWriteCommand(session);
+			System.out.println("answer_insert.do 커맨드 선언 되었음");
+			command.execute(request, response);
+			System.out.println("answer_insert.do 커맨드 실행 완료 되었음.");
+			viewPage = "review_temp_start.jsp";
+			System.out.println("answer_insert.do 다음 화면 입력 되었음.");
+			break;
+			
+			
+			
+			
 		}
+		
+		
+		
+		
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);
