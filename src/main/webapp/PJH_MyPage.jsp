@@ -25,6 +25,11 @@
 				<input type="submit" name="action" value="장바구니">
 			</form>
 			</td>
+			<td>
+			<form action="Q_list.do" method="post">
+				<input type="submit" name="action" value="Q&A">
+			</form>
+			</td>
 	</table>
 	<form action="UserModify.do" method="post"> 
 		<input type="hidden" name="cid" value=${cid }>
