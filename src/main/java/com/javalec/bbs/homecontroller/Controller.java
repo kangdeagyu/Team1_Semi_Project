@@ -196,7 +196,7 @@ public class Controller extends HttpServlet {
 			command.execute(request, response);
 			System.out.println("리뷰수정하기 커맨드 실행 완료 되었음.");
 			//viewPage = "reviewlist.do?pcode="+request.getParameter("pcode");
-			viewPage = "review_temp_start.jsp";
+			viewPage = "reviewlist.do?pcode="+request.getParameter("pcode");
 
 			System.out.println("리뷰수정하기 다음 화면 입력 되었음.");
 			break;
@@ -217,7 +217,7 @@ public class Controller extends HttpServlet {
 			command.execute(request, response);
 			System.out.println("리뷰수정하기 커맨드 실행 완료 되었음.");
 			//viewPage = "reviewlist.do?pcode="+request.getParameter("pcode");
-			viewPage = "review_temp_start.jsp";
+			viewPage = "reviewlist.do?pcode="+request.getParameter("pcode");
 			System.out.println("리뷰수정하기 다음 화면 입력 되었음.");
 			break;
 	
@@ -228,7 +228,7 @@ public class Controller extends HttpServlet {
 			command.execute(request, response);
 			System.out.println("리뷰삭제 커맨드 실행 완료 되었음.");
 			//viewPage = "reviewlist.do?pcode="+request.getParameter("pcode");
-			viewPage = "review_temp_start.jsp";
+			viewPage = "reviewlist.do?pcode="+request.getParameter("pcode");
 
 			System.out.println("리뷰삭제 다음 화면 입력 되었음.");
 			break;
@@ -248,7 +248,7 @@ public class Controller extends HttpServlet {
 			System.out.println("Q_Insert 커맨드 실행 완료 되었음.");
 			
 			
-			viewPage = "review_temp_start.jsp";
+			viewPage = "Q_list.do";
 
 			System.out.println("Q_Insert 다음 화면 입력 되었음.");
 			break;
@@ -287,7 +287,7 @@ public class Controller extends HttpServlet {
 			command.execute(request, response);
 			System.out.println("리뷰수정하기 커맨드 실행 완료 되었음.");
 			//viewPage = "reviewlist.do?pcode="+request.getParameter("pcode");
-			viewPage = "review_temp_start.jsp";
+			viewPage = "Q_list.do";
 			System.out.println("리뷰수정하기 다음 화면 입력 되었음.");
 			
 			
@@ -303,7 +303,7 @@ public class Controller extends HttpServlet {
 			command.execute(request, response);
 			System.out.println("질문삭제 커맨드 실행 완료 되었음.");
 			//viewPage = "reviewlist.do?pcode="+request.getParameter("pcode");
-			viewPage = "review_temp_start.jsp";
+			viewPage = "Q_list.do";
 
 			System.out.println("질문삭제 다음 화면 입력 되었음.");
 			break;
@@ -358,7 +358,7 @@ public class Controller extends HttpServlet {
 			System.out.println("answer_insert.do 커맨드 선언 되었음");
 			command.execute(request, response);
 			System.out.println("answer_insert.do 커맨드 실행 완료 되었음.");
-			viewPage = "review_temp_start.jsp";
+			viewPage = "Q_list.do";
 			System.out.println("answer_insert.do 다음 화면 입력 되었음.");
 			break;
 		}
