@@ -21,7 +21,7 @@ public class QInsertCommand implements SCommand {
 		// TODO Auto-generated method stub
 
 		
-		String q_cid = session.getAttribute("ID").toString();
+		String q_cid = session.getAttribute("sid").toString();
 		String qtitle = request.getParameter("qtitle");
 		String qcontent = request.getParameter("qcontent");
 		

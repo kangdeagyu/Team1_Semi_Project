@@ -26,7 +26,7 @@ public class QListCommand implements SCommand {
 		// TODO Auto-generated method stub
 
 		
-		String q_cid =session.getAttribute("ID").toString();
+		String q_cid =session.getAttribute("sid").toString();
 		System.out.println(q_cid);
 		System.out.println(q_cid.substring(0,5));
 		Kkg_QnA_Dao dao = new Kkg_QnA_Dao();

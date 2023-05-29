@@ -22,7 +22,7 @@ public class RInsertCommand implements SCommand {
 		
 		
 		//int rcode ;
-		String cid = session.getAttribute("ID").toString();
+		String cid = session.getAttribute("sid").toString();
 		int pcode = Integer.parseInt(request.getParameter("pcode"));
 		String rtitle = request.getParameter("rtitle");
 		String rcontent = request.getParameter("rcontent");
