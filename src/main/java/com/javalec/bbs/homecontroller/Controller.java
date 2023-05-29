@@ -147,18 +147,18 @@ public class Controller extends HttpServlet {
 			command = new PJH_UserModifyCommand();
 			command.execute(request, response);
 			viewPage = "mypage.do";
-		break;
+			break;
 		case ("/deleteOrPurchase.do"):
 		    command = new PJH_DeleteOrPurchaseCommand();
 		    command.execute(request, response);
 		    String action = request.getParameter("action");
-		    if (action.equals("삭제")) {
-		        viewPage = "cartlist.do";
-		    } else if (action.equals("구매")) {
-		        viewPage = "userorderlist.do";
-		    }
+			    if (action.equals("삭제")) {
+			        viewPage = "cartlist.do";
+			    } else if (action.equals("구매")) {
+			        viewPage = "userorderlist.do";
+			    }
 		    break;
-		case("/product.do"):
+		case("/productt.do"):
 			command = new JProductCommand();
 			command.execute(request, response);
 			viewPage = "product.jsp";

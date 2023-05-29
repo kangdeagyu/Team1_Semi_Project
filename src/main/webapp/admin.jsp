@@ -40,7 +40,7 @@
          </tr>
       </c:forEach>
    </table><br/>
-   <form action="product.do" method="post">
+   <form action="productt.do" method="post">
       <input type="submit" value="판매중인 상품 보기">
    </form>
    <hr/><br/>

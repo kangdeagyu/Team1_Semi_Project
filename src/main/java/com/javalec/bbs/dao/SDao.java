@@ -43,6 +43,7 @@ public class SDao {
 			if(rs.next()) {
 				count = rs.getInt(1);
 			}
+			
 			if(count > 0) {
 				result =  1;	// 등록된 회원
 			}
@@ -84,9 +85,9 @@ public class SDao {
 			if(count > 0) {
 				result =  3;	// 관리자
 			}
-			if(count == 0) {
-				result = 0;
-			}
+//			if(count == 0) {
+//				result = 0;
+//			}
 		}catch (Exception e) {
 			e.printStackTrace();
 		
