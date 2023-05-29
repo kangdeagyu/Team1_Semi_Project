@@ -32,6 +32,8 @@ public class SDao {
 		
 		try {
 			connection = dataSource.getConnection(); // sql 연결
+			
+			// 등록된 회원
 			String query = "select count(cid) from Customer where cid = ? and cpw = ? and cdeletedate is null";
 			ps = connection.prepareStatement(query);
 			ps.setString(1, cid);
@@ -42,12 +44,16 @@ public class SDao {
 				count = rs.getInt(1);
 			}
 			if(count > 0) {
-				result =  1;
+				result =  1;	// 등록된 회원
+			}
+			if(count == 0) {
+				result = 0;		// 등록되지 않은 회원
 			}
 			ps.close();
 			rs.close();
 			count = 0;
 			
+			// 탈퇴한 회원
 			String query1 = "select count(cid) from Customer where cid = ? and cpw = ? and cdeletedate is not null";
 			ps = connection.prepareStatement(query1);
 			ps.setString(1, cid);
@@ -58,9 +64,29 @@ public class SDao {
 				count = rs.getInt(1);
 			}
 			if(count > 0) {
-				result =  2;
+				result =  2;	// 탈퇴한 회원
 			}
+	
+			ps.close();
+			rs.close();
+			count = 0;
 			
+			// 관리자
+			String query3 = "select count(aid) from Customer where aid = ? and apw = ?";
+			ps = connection.prepareStatement(query3);
+			ps.setString(1, cid);
+			ps.setString(2, cpw);
+			rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				count = rs.getInt(1);
+			}
+			if(count > 0) {
+				result =  3;	// 관리자
+			}
+			if(count == 0) {
+				result = 0;
+			}
 		}catch (Exception e) {
 			e.printStackTrace();
 		
