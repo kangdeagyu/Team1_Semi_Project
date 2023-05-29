@@ -14,9 +14,9 @@ public class Kms_ListCommand implements SCommand {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		HttpSession session = request.getSession(true);
-		String cid=(String)session.getAttribute("sid");
-		request.setAttribute("cid", cid);
+//		HttpSession session = request.getSession(true);
+//		String cid=(String)session.getAttribute("sid");
+//		request.setAttribute("cid", cid);
 		Kms_UserMain_Dao dao = new Kms_UserMain_Dao();
 		ArrayList<Kms_UserMain_Dto> dtos = dao.list();
 		request.setAttribute("list", dtos);
