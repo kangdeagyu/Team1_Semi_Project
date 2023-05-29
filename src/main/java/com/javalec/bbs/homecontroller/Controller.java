@@ -16,6 +16,7 @@ import com.javalec.bbs.command.JListCommand;
 import com.javalec.bbs.command.Kms_BasketCommand;
 import com.javalec.bbs.command.Kms_ListCommand;
 import com.javalec.bbs.command.Kms_UserBuyCommand;
+import com.javalec.bbs.command.Kms_UserSearchCommand;
 import com.javalec.bbs.command.PJH_Basket_ListCommand;
 import com.javalec.bbs.command.PJH_DeleteOrPurchaseCommand;
 import com.javalec.bbs.command.PJH_UserMyPageCommand;
@@ -99,6 +100,11 @@ public class Controller extends HttpServlet {
 			break;
 		case("/usermain.do"):
 			command = new Kms_ListCommand();
+			command.execute(request, response);
+			viewPage = "Kms_UserMain.jsp";
+			break;
+		case("/search.do"):
+			command = new Kms_UserSearchCommand();
 			command.execute(request, response);
 			viewPage = "Kms_UserMain.jsp";
 			break;
