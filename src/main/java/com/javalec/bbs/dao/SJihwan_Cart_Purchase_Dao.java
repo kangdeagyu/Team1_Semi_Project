@@ -180,7 +180,29 @@ public class SJihwan_Cart_Purchase_Dao {
 	}
 	
 	
-	
+	public void basketdelete(String bcode) {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		try {
+			connection = datasource.getConnection();
+			String query = "delete from basket where bcode = ?";
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setInt(1, Integer.parseInt(bcode));
+			preparedStatement.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+				if (connection != null)
+					connection.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+	}
 	
 	
 	
