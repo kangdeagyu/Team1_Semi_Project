@@ -132,7 +132,7 @@ public class SJihwan_Cart_Purchase_Dao {
 		PreparedStatement preparedStatement = null;
 		try {
 			connection = datasource.getConnection();
-			String query = "insert into ordering (o_cid, o_pcode, oqty, odate) values (?,?,?,?,now())";
+			String query = "insert into ordering (o_cid, o_pcode, oqty, odate) values (?,?,?,now())";
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setString(1, cid);
 			preparedStatement.setString(2, pcode);

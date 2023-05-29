@@ -26,7 +26,7 @@ public class PJH_UserOrderListCommand implements SCommand {
 		}
 		
 		
-		request.setAttribute("list", dtos);
+		request.setAttribute("olist", dtos);
 		request.setAttribute("total", total);
 	}
 

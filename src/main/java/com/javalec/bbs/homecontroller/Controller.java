@@ -135,7 +135,7 @@ public class Controller extends HttpServlet {
 		case("/deleteOrPurchase.do"):
 			command = new PJH_DeleteOrPurchaseCommand();
 			command.execute(request, response);
-			viewPage = "PJH_basketList.jsp";
+			viewPage = "PJH_basketlist.jsp";
 		break;
 		case ("/reviewlist.do"):
 			System.out.println("컨트롤러 스위치 안에 들어왔음.");

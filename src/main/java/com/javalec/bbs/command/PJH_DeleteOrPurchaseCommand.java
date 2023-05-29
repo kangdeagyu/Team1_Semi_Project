@@ -12,7 +12,11 @@ public class PJH_DeleteOrPurchaseCommand implements SCommand {
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		HttpSession session = request.getSession(true);
 		String action = request.getParameter("action");
+		System.out.println(action);
 		String cid=(String)session.getAttribute("sid");
+		
+		
+		
 		
 		
 		

@@ -9,9 +9,8 @@
 	</head>
 	<body>
 	<h3>구매 목록</h3>
-	<input type="hidden" name="cid" value=${cid }>
 	<table>
-		<td>${dto.cname} 고객님</td>
+		<td>${cid} 고객님</td>
 			<td>
 			<form action="usermain.do" method="post">
 				<input type="submit" name="action" value="Home">
@@ -44,15 +43,15 @@
 	            <th>주문날짜</th>
 	            <th>리뷰 작성하기</th>
 	        </tr>
-	        <c:forEach items="${list}" var="dto">
+	        <c:forEach items="${olist}" var="dto">
 	            <tr>
-	                <!--<td> <img src="${dto.pimagename}" alt="Product Image" /></td>-->
+	                <td> <img src="${dto.pimagename}" alt="Product Image" /></td>
 	                <td>${dto.onum }</td>
 	                <td>${dto.pname }</td>
 	                <td>${dto.pprice }</td>
 	                <td>${dto.oqty }</td>
 	                <td>${dto.odate}</td>
-	                <td><a href="review_write.do?pcde=${dto.pcode}">
+	                <td><a href="review_write.do?pcde=${dto.pcode}">리뷰작성하기
 	                </a></td>
 	            </tr>
 	        </c:forEach>

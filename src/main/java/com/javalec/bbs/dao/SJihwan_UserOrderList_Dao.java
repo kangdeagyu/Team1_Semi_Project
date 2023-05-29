@@ -59,23 +59,14 @@ public class SJihwan_UserOrderList_Dao {
 			preparedStatement.setString(1, cid);
 			resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()) {
-			    int pcode = resultSet.getInt(2);
-			    File file = new File("./" + pcode);
-			    FileOutputStream output = new FileOutputStream(file);
-			    InputStream input = resultSet.getBinaryStream(1);
-			    
-			    byte[] buffer = new byte[1024];
-			    while (input.read(buffer) > 0) {
-			        output.write(buffer);
-			    }
-			    
-			    String pimageName = file.getPath(); // 파일의 전체 경로를 가져옴
+				String pimage = resultSet.getString(1);
+				int pcode= resultSet.getInt(2);
 			    int onum=resultSet.getInt(3);
 			    String pname = resultSet.getString(4);
 			    int pprice = resultSet.getInt(5);
 			    int oqty = resultSet.getInt(6);
 			    String odate = resultSet.getString(6);
-			    SJihwan_UserOrderList_Dto dto = new SJihwan_UserOrderList_Dto(pimageName, onum, pname, pprice, oqty, odate, pcode);
+			    SJihwan_UserOrderList_Dto dto = new SJihwan_UserOrderList_Dto(pimage, onum, pname, pprice, oqty, odate, pcode);
 			    dtos.add(dto);
 			}
 		}catch (Exception e) {
