@@ -48,11 +48,11 @@
 			<th>상품번호</th>
 			<th>상품명</th>
 			<th>상품가격</th>
-			<th></th>
+			<th>리뷰</th>
 		</tr>
 		<c:forEach items="${list }" var="dto">
 			<tr>
-				<td><img src="${dto.pimage } alt=${dto.pimagename}"></td>
+				<td><img src="${dto.pimage } alt=${dto.pimagename}" height="100" width="100"></td>
 				<td>${dto.pcode }</td>
 				<td><a href="buy.do?pname=${dto.pname }">${dto.pname }</a></td>
 				<td>${dto.pprice }</td>
