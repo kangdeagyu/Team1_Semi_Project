@@ -10,7 +10,7 @@
 <body>
 	<h1>신발 리스트</h1>
 	${sid } 고객님 환영합니다.
-	<input type="hidden" name="cid" value=${cid }>
+	<input type="hidden" name="cid" value=${sid }>
 	<table>
 			<form action="loginview.do" method="post">
 			<td>

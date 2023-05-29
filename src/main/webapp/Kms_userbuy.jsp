@@ -4,12 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>상세 정보</title>
 </head>
 <body>
 ${sid } 고객님 환영합니다. <br/>
 <h3>${contentView.pname}</h3>
-<input type="hidden" name="cid" value=${cid }>
+<input type="hidden" name="cid" value=${sid }>
 	<table>
 			<td>
 			<form action="usermain.do" method="post">
@@ -34,7 +34,7 @@ ${sid } 고객님 환영합니다. <br/>
 	</table>
 <form action="basket.do" method="post">
 		<input type="hidden" name="pcode" value="${contentView.pcode }">
-		<input type="hidden" name="cid" value="${cid }">
+		<input type="hidden" name="cid" value="${sid }">
 		<table>
 			<tr>
 				<td>상품이름 :</td>

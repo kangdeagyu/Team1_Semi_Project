@@ -38,7 +38,7 @@ public class SJihwan_MyPage_Dao {
 			PreparedStatement preparedStatement = null;
 			try {
 				connection = datasource.getConnection();
-				String query = "update customer set cpw=?, cname=?, ctelno=?, caddress=?, cemail=?, where cid= ?";
+				String query = "update customer set cpw=?, cname=?, ctelno=?, caddress=?, cemail=? where cid= ?";
 				preparedStatement = connection.prepareStatement(query);
 				preparedStatement.setString(1, cpw);
 				preparedStatement.setString(2, cname);

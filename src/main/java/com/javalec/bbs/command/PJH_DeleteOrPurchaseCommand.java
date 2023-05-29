@@ -35,6 +35,7 @@ public class PJH_DeleteOrPurchaseCommand implements SCommand {
 	            		String qty= request.getParameter("bqty"+bcode);
 	                	SJihwan_Cart_Purchase_Dao dao = new SJihwan_Cart_Purchase_Dao();
 	                    dao.purchase(cid, pcode, qty);
+	                    dao.basketdelete(bcode);
 	                }
 	            }
 	        }

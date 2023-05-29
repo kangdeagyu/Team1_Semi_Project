@@ -11,9 +11,10 @@ public class Kms_BasketCommand implements SCommand {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		HttpSession session = request.getSession(true);
-		String cid=(String)session.getAttribute("sid");
-		request.setAttribute("cid", cid);
+//		HttpSession session = request.getSession(true);
+//		String cid=(String)session.getAttribute("sid");
+//		request.setAttribute("cid", cid);
+		String cid = request.getParameter("cid");
 		String pcode = request.getParameter("pcode");
 		int qty = Integer.parseInt(request.getParameter("bqty"));
 		

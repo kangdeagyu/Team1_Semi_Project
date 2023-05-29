@@ -64,23 +64,13 @@ public class SJihwan_Cart_Purchase_Dao {
 			preparedStatement.setString(1, cid);
 			resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()) {
-			    int pcode = resultSet.getInt(2);
-			    File file = new File("./" + pcode);
-			    FileOutputStream output = new FileOutputStream(file);
-			    InputStream input = resultSet.getBinaryStream(1);
-			    
-			    byte[] buffer = new byte[1024];
-			    while (input.read(buffer) > 0) {
-			        output.write(buffer);
-			    }
-			    
-			    String pimageName = file.getPath(); // 파일의 전체 경로를 가져옴
-			    
+			    String pimage=resultSet.getString(1);
+			    int pcode=resultSet.getInt(2);
 			    String pname = resultSet.getString(3);
 			    int pprice = resultSet.getInt(4);
 			    int bqty = resultSet.getInt(5);
 			    int bcode = resultSet.getInt(6);
-			    SJihwan_Cart_Purchase_Dto dto = new SJihwan_Cart_Purchase_Dto(pimageName, pcode, pname, pprice, bqty, bcode);
+			    SJihwan_Cart_Purchase_Dto dto = new SJihwan_Cart_Purchase_Dto(pimage, pcode, pname, pprice, bqty, bcode);
 			    dtos.add(dto);
 			}
 		}catch (Exception e) {
@@ -190,7 +180,29 @@ public class SJihwan_Cart_Purchase_Dao {
 	}
 	
 	
-	
+	public void basketdelete(String bcode) {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		try {
+			connection = datasource.getConnection();
+			String query = "delete from basket where bcode = ?";
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setInt(1, Integer.parseInt(bcode));
+			preparedStatement.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+				if (connection != null)
+					connection.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+	}
 	
 	
 	

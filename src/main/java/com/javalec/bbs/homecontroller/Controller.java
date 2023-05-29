@@ -19,6 +19,7 @@ import com.javalec.bbs.command.Kms_UserBuyCommand;
 import com.javalec.bbs.command.Kms_UserSearchCommand;
 import com.javalec.bbs.command.PJH_Basket_ListCommand;
 import com.javalec.bbs.command.PJH_DeleteOrPurchaseCommand;
+import com.javalec.bbs.command.PJH_UserModifyCommand;
 import com.javalec.bbs.command.PJH_UserMyPageCommand;
 import com.javalec.bbs.command.PJH_UserOrderListCommand;
 import com.javalec.bbs.command.QDeleteCommand;
@@ -84,6 +85,7 @@ public class Controller extends HttpServlet {
 		
 		switch (com) {
 		case("/loginview.do"):
+			session.invalidate();
 			viewPage = "login.jsp";
 			break;
 		case ("/login.do"):
@@ -140,6 +142,11 @@ public class Controller extends HttpServlet {
 			command.execute(request, response);
 			viewPage = "admin.jsp";
 			break;
+		case("/UserModify.do"):
+			command = new PJH_UserModifyCommand();
+			command.execute(request, response);
+			viewPage = "mypage.do";
+		break;
 		case ("/deleteOrPurchase.do"):
 		    command = new PJH_DeleteOrPurchaseCommand();
 		    command.execute(request, response);

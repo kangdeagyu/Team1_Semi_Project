@@ -27,11 +27,7 @@
 				<input type="submit" name="action" value="MyPage">
 			</form>
 			</td>
-			<td>
-			<form action="cartlist.do" method="post">
-				<input type="submit" name="action" value="장바구니">
-			</form>
-			</td>
+			
 	</table>
 	<hr>
 	<form action="deleteOrPurchase.do" method="post">
@@ -46,7 +42,7 @@
 	        </tr>
 	        <c:forEach items="${list}" var="dto">
 	            <tr>
-	                <td> <img src="${dto.pimagename}" alt="Product Image" /></td>
+	                <td> <img src="${dto.pimage}" alt="Product Image" height="100" width="100" /></td>
 	                <td>${dto.pcode }</td>
 	                <td>${dto.pname }</td>
 	                <td>${dto.pprice }</td>
