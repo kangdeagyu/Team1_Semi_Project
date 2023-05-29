@@ -17,7 +17,7 @@ public class SDao {
 		// TODO Auto-generated constructor stub
 		try {
 			Context context = new InitialContext();
-			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/mvc");
+			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/shoestar");
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
