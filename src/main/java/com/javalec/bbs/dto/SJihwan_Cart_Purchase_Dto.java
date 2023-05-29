@@ -23,7 +23,7 @@ public class SJihwan_Cart_Purchase_Dto {
 	int pcode;
 	String pname;
 	int pprice;
-	String pimagename;
+	String pimage;
 	
 	//customer
 	String cid;
@@ -38,9 +38,9 @@ public class SJihwan_Cart_Purchase_Dto {
 	// Constructor
 
 
-	public SJihwan_Cart_Purchase_Dto(String pimagename, int pcode, String pname, int pprice, int bqty, int bcode) {
+	public SJihwan_Cart_Purchase_Dto(String pimage, int pcode, String pname, int pprice, int bqty, int bcode) {
 		super();
-		this.pimagename = pimagename;
+		this.pimage = pimage;
 		this.pcode = pcode;
 		this.pname = pname;
 		this.pprice = pprice;
@@ -128,13 +128,13 @@ public class SJihwan_Cart_Purchase_Dto {
 	}
 
 
-	public String getPimagename() {
-		return pimagename;
+	public String getPimage() {
+		return pimage;
 	}
 
 
-	public void setPimagename(String pimagename) {
-		this.pimagename = pimagename;
+	public void setPimagename(String pimage) {
+		this.pimage = pimage;
 	}
 	
 	

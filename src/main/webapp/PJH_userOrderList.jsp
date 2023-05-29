@@ -45,7 +45,7 @@
 	        </tr>
 	        <c:forEach items="${olist}" var="dto">
 	            <tr>
-	                <td> <img src="${dto.pimagename}" alt="Product Image" /></td>
+	                <td> <img src="${dto.pimagename}" alt="Product Image" height="100" width="100"/></td>
 	                <td>${dto.onum }</td>
 	                <td>${dto.pname }</td>
 	                <td>${dto.pprice }</td>
