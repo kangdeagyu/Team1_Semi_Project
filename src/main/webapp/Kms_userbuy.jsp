@@ -9,6 +9,30 @@
 <body>
 ${sid } 고객님 환영합니다. <br/>
 <h3>${contentView.pname}</h3>
+<input type="hidden" name="cid" value=${cid }>
+	<table>
+		<td>${cid} 고객님</td>
+			<td>
+			<form action="usermain.do" method="post">
+				<input type="submit" name="action" value="Home">
+			</form>
+			</td>
+			<td>
+			<form action="loginview.do" method="post">
+			<input type="submit" name="action" value="LogOut">
+			</form>
+			</td>
+			<td>
+			<form action="mypage.do" method="post">
+				<input type="submit" name="action" value="MyPage">
+			</form>
+			</td>
+			<td>
+			<form action="basket.do" method="post">
+				<input type="submit" name="action" value="장바구니">
+			</form>
+			</td>
+	</table>
 <form action="basket.do" method="post">
 		<input type="hidden" name="pcode" value="${contentView.pcode }">
 		<input type="hidden" name="cid" value="${cid }">
