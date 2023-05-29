@@ -147,7 +147,7 @@ public class Controller extends HttpServlet {
 		    if (action.equals("삭제")) {
 		        viewPage = "cartlist.do";
 		    } else if (action.equals("구매")) {
-		        viewPage = "PJH_userOrderList.do";
+		        viewPage = "userorderlist.do";
 		    }
 		    break;
 		case ("/reviewlist.do"):
