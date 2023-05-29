@@ -10,7 +10,7 @@
 	<body>
 	<h3>구매 목록</h3>
 	<table>
-		<td>${cid} 고객님</td>
+		<td>${dto.cname} 고객님</td>
 			<td>
 			<form action="usermain.do" method="post">
 				<input type="submit" name="action" value="Home">
@@ -51,7 +51,7 @@
 	                <td>${dto.pprice }</td>
 	                <td>${dto.oqty }</td>
 	                <td>${dto.odate}</td>
-	                <td><a href="review_write.do?pcde=${dto.pcode}">리뷰작성하기
+	                <td><a href="review_write.do?pcode=${dto.pcode}">리뷰작성하기
 	                </a></td>
 	            </tr>
 	        </c:forEach>

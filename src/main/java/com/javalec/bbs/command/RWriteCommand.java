@@ -24,7 +24,7 @@ public class RWriteCommand implements SCommand {
 		// TODO Auto-generated method stub
 
 		String cid = session.getAttribute("sid").toString();
-		int pcode = Integer.parseInt( request.getParameter("pcode"));
+		int pcode = Integer.parseInt(request.getParameter("pcode"));
 //		
 //	int rcode =Integer.parseInt(request.getParameter("rcode"));
 //		
