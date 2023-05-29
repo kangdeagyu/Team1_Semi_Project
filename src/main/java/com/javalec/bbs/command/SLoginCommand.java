@@ -12,20 +12,24 @@ public class SLoginCommand implements SCommand {
 		// TODO Auto-generated method stub
 		String cid = request.getParameter("cid");
 		String cpw = request.getParameter("cpw");
-		boolean result;
+		int result;
 		String view = "";
 		String msg;
 		SDao dao = new SDao();
 		result = dao.loginCheck(cid, cpw);
 		
-		if(result == true) {
+		if(result == 2) {
+			view = "login.jsp";
+			msg = "탈퇴한 회원입니다.";
+			request.setAttribute("msg", msg);
+		}else if(result == 1) {
 			if(cid.equals("admin")) {
 				view = "admin.do";			// 관리자 화면으로 변경
 			}else {
 				view = "usermain.do";  // 홈 화면으로 변경	
 				request.setAttribute("cid", cid);
 			}
-		}else {
+		}else{
 			view = "login.jsp";
 			msg = "아이디와 비밀번호를 확인해주세요";
 			request.setAttribute("msg", msg);
