@@ -4,7 +4,8 @@ public class JDto {
 
 	
 	String cid;
-	String imagename;
+	String pimagename;
+	String pimage;
 	String cname;
 	String ctelno;
 	String caddress;
@@ -12,12 +13,33 @@ public class JDto {
 	String pname;
 	String pprice;
 	
+	int pcode;
+	
 	
 	public JDto() {
 		// TODO Auto-generated constructor stub
 	}
 
 	
+
+	
+
+
+
+	public JDto(String pimagename, String pimage, String pname, String pprice, int pcode) {
+		super();
+		this.pimagename = pimagename;
+		this.pimage = pimage;
+		this.pname = pname;
+		this.pprice = pprice;
+		this.pcode = pcode;
+	}
+
+
+
+
+
+
 
 	public JDto(String cid, String cname, String ctelno, String caddress, String cemail) {
 		super();
@@ -31,6 +53,42 @@ public class JDto {
 
 
 
+	public String getPimagename() {
+		return pimagename;
+	}
+
+
+
+	public void setPimagename(String pimagename) {
+		this.pimagename = pimagename;
+	}
+
+
+
+	public String getPimage() {
+		return pimage;
+	}
+
+
+
+	public void setPimage(String pimage) {
+		this.pimage = pimage;
+	}
+
+
+
+	public int getPcode() {
+		return pcode;
+	}
+
+
+
+	public void setPcode(int pcode) {
+		this.pcode = pcode;
+	}
+
+
+
 	public String getCid() {
 		return cid;
 	}
@@ -38,16 +96,6 @@ public class JDto {
 
 	public void setCid(String cid) {
 		this.cid = cid;
-	}
-
-
-	public String getImagename() {
-		return imagename;
-	}
-
-
-	public void setImagename(String imagename) {
-		this.imagename = imagename;
 	}
 
 

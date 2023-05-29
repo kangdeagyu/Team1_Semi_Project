@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import com.javalec.bbs.command.AViewCommand;
 import com.javalec.bbs.command.AWriteCommand;
 import com.javalec.bbs.command.JListCommand;
+import com.javalec.bbs.command.JProductCommand;
 import com.javalec.bbs.command.Kms_BasketCommand;
 import com.javalec.bbs.command.Kms_ListCommand;
 import com.javalec.bbs.command.Kms_UserBuyCommand;
@@ -157,6 +158,11 @@ public class Controller extends HttpServlet {
 		        viewPage = "userorderlist.do";
 		    }
 		    break;
+		case("/product.do"):
+			command = new JProductCommand();
+			command.execute(request, response);
+			viewPage = "product.jsp";
+			break;
 		case ("/reviewlist.do"):
 			System.out.println("컨트롤러 스위치 안에 들어왔음.");
 			command = new RListCommand();
