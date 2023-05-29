@@ -9,9 +9,9 @@
 	</head>
 	<body>
 	<h3>장바구니</h3>
-	<input type="hidden" name="cid" value="IU1993">
+	<input type="hidden" name="cid" value=${cid }>
 	<table>
-		<td>${dto.cname} 고객님</td>
+		<td>${cid} 고객님</td>
 			<td>
 			<form action="usermain.do" method="post">
 				<input type="submit" name="action" value="Home">

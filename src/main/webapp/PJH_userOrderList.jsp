@@ -9,7 +9,7 @@
 	</head>
 	<body>
 	<h3>구매 목록</h3>
-	<input type="hidden" name="cid" value="IU1993">
+	<input type="hidden" name="cid" value=${cid}>
 	<table>
 		<td>${dto.cname} 고객님</td>
 			<td>

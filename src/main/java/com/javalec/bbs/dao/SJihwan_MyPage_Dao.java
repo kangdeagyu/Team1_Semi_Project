@@ -70,7 +70,7 @@ public class SJihwan_MyPage_Dao {
 				connection = datasource.getConnection();
 				String query = "select * from customer where cid = ?";
 				preparedStatement = connection.prepareStatement(query);
-				preparedStatement.setInt(1, Integer.parseInt(cid));
+				preparedStatement.setString(1, cid);
 				resultSet = preparedStatement.executeQuery();
 				
 				if(resultSet.next()) {

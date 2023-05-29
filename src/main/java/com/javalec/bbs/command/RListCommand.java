@@ -19,7 +19,7 @@ public class RListCommand implements SCommand {
 		Kkg_Review_Dao dao = new Kkg_Review_Dao();
 		ArrayList<Kkg_Review_Dto> dtos  = dao.reviewList(pcode);
 		
-		System.out.println("커맨드 클래스에서 dots의 두번째의 rcode 값 : "+dtos.get(1).getRcode());
+		System.out.println("RListcommand 클래스에서 dots의 크기 "+dtos.size());
 		request.setAttribute("rList", dtos);
 		
 		

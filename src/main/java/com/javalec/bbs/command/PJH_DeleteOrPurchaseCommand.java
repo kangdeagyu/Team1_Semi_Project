@@ -2,6 +2,7 @@ package com.javalec.bbs.command;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.javalec.bbs.dao.SJihwan_Cart_Purchase_Dao;
 
@@ -9,8 +10,9 @@ public class PJH_DeleteOrPurchaseCommand implements SCommand {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
+		HttpSession session = request.getSession(true);
 		String action = request.getParameter("action");
-		String cid= request.getParameter("cid");
+		String cid=(String)session.getAttribute("sid");
 		
 		
 		

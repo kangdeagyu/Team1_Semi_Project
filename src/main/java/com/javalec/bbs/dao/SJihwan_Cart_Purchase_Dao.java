@@ -10,6 +10,8 @@ import java.util.ArrayList;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
 import com.javalec.bbs.dto.SJihwan_Cart_Purchase_Dto;
@@ -19,7 +21,6 @@ public class SJihwan_Cart_Purchase_Dao {
 
 	// Field
 	DataSource datasource;
-	
 	
 	
 	
@@ -49,7 +50,7 @@ public class SJihwan_Cart_Purchase_Dao {
 	
 	//Method
 	
-	public ArrayList<SJihwan_Cart_Purchase_Dto> list() {
+	public ArrayList<SJihwan_Cart_Purchase_Dto> list(String cid) {
 		ArrayList<SJihwan_Cart_Purchase_Dto> dtos = new ArrayList<SJihwan_Cart_Purchase_Dto>();
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -58,8 +59,9 @@ public class SJihwan_Cart_Purchase_Dao {
 			connection = datasource.getConnection();
 			String query = "select p.pimage, p.pcode, p.pname, p.pprice, b.bqty, b.bcode ";
 			String query1 = " from Customer c, product p, basket b ";
-			String query2 = " where c.cid = b.b_cid and b.b_pcode = p.pcode and b.b_cid = 'JS1987' ";
+			String query2 = " where c.cid = b.b_cid and b.b_pcode = p.pcode and b.b_cid = ?";
 			preparedStatement = connection.prepareStatement(query+query1+query2);
+			preparedStatement.setString(1, cid);
 			resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()) {
 			    int pcode = resultSet.getInt(2);
