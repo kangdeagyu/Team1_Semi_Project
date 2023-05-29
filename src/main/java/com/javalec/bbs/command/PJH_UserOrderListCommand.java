@@ -21,10 +21,10 @@ public class PJH_UserOrderListCommand implements SCommand {
 		ArrayList<SJihwan_UserOrderList_Dto>dtos = dao.list(cid);
 		int total = 0;
 		for (SJihwan_UserOrderList_Dto dto : dtos) {
+			dto.setCname((String) session.getAttribute("cname"));
 			int price = dto.getPprice();
 			total +=price;
 		}
-		
 		
 		request.setAttribute("olist", dtos);
 		request.setAttribute("total", total);

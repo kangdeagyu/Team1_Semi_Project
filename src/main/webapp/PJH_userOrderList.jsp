@@ -10,7 +10,7 @@
 	<body>
 	<h3>구매 목록</h3>
 	<table>
-		<td>${cid} 고객님</td>
+		<td>${dto.cname} 고객님</td>
 			<td>
 			<form action="usermain.do" method="post">
 				<input type="submit" name="action" value="Home">

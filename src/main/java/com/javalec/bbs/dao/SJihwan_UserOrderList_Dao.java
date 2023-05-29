@@ -52,7 +52,7 @@ public class SJihwan_UserOrderList_Dao {
 		ResultSet resultSet = null;
 		try {
 			connection = datasource.getConnection();
-			String query = "select p.pimage, p.pcode, o.onum, p.pname, p.pprice, o.oqty, o.odate ";
+			String query = "select p.pimage, p.pcode, o.onum, p.pname, p.pprice, o.oqty, o.odate, c.cname ";
 			String query1 = " from Customer c, product p, ordering o ";
 			String query2 = " where c.cid = o.o_cid and o.o_pcode = p.pcode and o.o_cid = ?";
 			preparedStatement = connection.prepareStatement(query+query1+query2);
@@ -65,8 +65,9 @@ public class SJihwan_UserOrderList_Dao {
 			    String pname = resultSet.getString(4);
 			    int pprice = resultSet.getInt(5);
 			    int oqty = resultSet.getInt(6);
-			    String odate = resultSet.getString(6);
-			    SJihwan_UserOrderList_Dto dto = new SJihwan_UserOrderList_Dto(pimage, onum, pname, pprice, oqty, odate, pcode);
+			    String odate = resultSet.getString(7);
+			    String cname= resultSet.getString(8);
+			    SJihwan_UserOrderList_Dto dto = new SJihwan_UserOrderList_Dto(pimage, onum, pname, pprice, oqty, odate, pcode, cname);
 			    dtos.add(dto);
 			}
 		}catch (Exception e) {
