@@ -145,13 +145,13 @@ public class Kms_UserMain_Dao {
 		
 		try {
 			connection = dataSource.getConnection();
-			String query = "select pimage, pcode, pname, pprice from product";
+			String query = "select pimage, pimagename, pcode, pprice, pname from product";
 			String Where2 = " where " + list + " like ?";
 			ps = connection.prepareStatement(query + Where2);
 			ps.setString(1, "%" + content + "%");
 			rs = ps.executeQuery();
 			
-			while(rs.next()) { 
+			while(rs.next()) {
 				String Pimage = rs.getString(1);
 				String Pimagename = rs.getString(2);
 				int Pcode = rs.getInt(3);
