@@ -138,10 +138,15 @@ public class Controller extends HttpServlet {
 			command.execute(request, response);
 			viewPage = "admin.jsp";
 			break;
-		case("/deleteOrPurchase.do"):
+		case("/delete.do"):
 			command = new PJH_DeleteOrPurchaseCommand();
 			command.execute(request, response);
-			viewPage = "PJH_basketlist.jsp";
+			viewPage = "cartlist.do";
+		break;
+		case("/purchase.do"):
+			command = new PJH_DeleteOrPurchaseCommand();
+			command.execute(request, response);
+			viewPage = "userorderlist.do";
 		break;
 		case ("/reviewlist.do"):
 			System.out.println("컨트롤러 스위치 안에 들어왔음.");
