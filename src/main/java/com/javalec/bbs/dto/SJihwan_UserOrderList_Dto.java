@@ -28,7 +28,7 @@ public class SJihwan_UserOrderList_Dto {
 	
 	
 	//Constructor
-	public SJihwan_UserOrderList_Dto(String pimagename, int onum, String pname, int pprice, int oqty, String odate, int pcode, String cname) {
+	public SJihwan_UserOrderList_Dto(String pimagename, int onum, String pname, int pprice, int oqty, String odate, int pcode, String caddress, String cname) {
 		super();
 		this.pimagename = pimagename;
 		this.onum = onum;
@@ -37,6 +37,7 @@ public class SJihwan_UserOrderList_Dto {
 		this.oqty = oqty;
 		this.odate = odate;
 		this.pcode=pcode;
+		this.caddress=caddress;
 		this.cname=cname;
 	}
 
