@@ -27,7 +27,7 @@
 			</td>
 	</table>
 	<form action="UserModify.do" method="post"> 
-		<input type="hidden" name="cid" value="HJM1984">
+		<input type="hidden" name="cid" value=${cid }>
 		<table>
 			<tr>
 				<td>ID</td>
