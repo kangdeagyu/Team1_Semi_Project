@@ -51,7 +51,7 @@
 	                <td>${dto.pprice }</td>
 	                <td>${dto.oqty }</td>
 	                <td>${dto.odate}</td>
-	                <td><a href="review_write.do?pcde=${dto.pcode}">리뷰작성하기
+	                <td><a href="review_write.do?pcode=${dto.pcode}">리뷰작성하기
 	                </a></td>
 	            </tr>
 	        </c:forEach>
