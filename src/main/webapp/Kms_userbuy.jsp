@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>상세 정보</title>
 </head>
 <body>
 ${sid } 고객님 환영합니다. <br/>
