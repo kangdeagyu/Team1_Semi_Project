@@ -88,7 +88,7 @@ public class Controller extends HttpServlet {
 		case("/buy.do"):
 			command = new Kms_UserBuyCommand();
 			command.execute(request, response);
-			viewPage = "kms_userbuy.jsp";
+			viewPage = "Kms_userbuy.jsp";
 			break;
 		case("/basket.do"):
 			command = new Kms_BasketCommand();
